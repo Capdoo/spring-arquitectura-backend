@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.arquitectura.app.dto.FileNombreDTO;
 import com.arquitectura.app.dto.MensajeDTO;
+import com.arquitectura.app.excel.FormExcelImporter;
 import com.arquitectura.app.modules.env1.Env1Service;
 
 import java.io.File;
@@ -28,12 +29,18 @@ public class FileUploadService {
 	String FILE_DIRECTORY;
 	@Autowired
 	Env1Service env1Service;
+	
+	@Autowired
+	FormExcelImporter formExcelImporter;
 
 	
 	private final static Logger logger = LoggerFactory.getLogger(FileUploadService.class);
 	
 	
 	public ResponseEntity<Object> fileUpload(MultipartFile file) throws IOException{
+		
+		formExcelImporter.excelImport();
+		
 		
 		logger.info("Proceso de subida : documento XLSX");
 		logger.info("Ruta establecida:" + FILE_DIRECTORY+file.getOriginalFilename());
