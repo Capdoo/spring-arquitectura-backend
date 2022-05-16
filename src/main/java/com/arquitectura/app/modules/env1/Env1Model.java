@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="env1partA")
+@Table(name="env1part1")
 public class Env1Model {
 	
 	@Id
@@ -26,6 +26,10 @@ public class Env1Model {
 	
 	@Column(name="transmitancia")
 	private String transmitancia;
+	
+	public Env1Model() {
+		super();
+	}
 
 	public Env1Model(long id, String tipo, String subtipo, String nombre, String transmitancia) {
 		super();

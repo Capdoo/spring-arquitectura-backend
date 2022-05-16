@@ -1,2 +1,2 @@
 USE arquitectura;
-DROP TABLE env1partA;
+DROP TABLE env1part1;
