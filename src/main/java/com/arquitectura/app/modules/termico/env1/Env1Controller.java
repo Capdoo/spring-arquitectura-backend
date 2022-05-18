@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.dto.StringDTO;
+import com.arquitectura.app.dto.TermicoDTO;
 
 
 @RestController
@@ -22,15 +23,16 @@ public class Env1Controller {
 	@Autowired
 	Env1Service env1Service;
 	
+	@Autowired
+	Env1ServiceGlobal env1ServiceGlobal;
 	
 	@PostMapping("/obtenerTransmitancia")
 	public ResponseEntity<Object> obtener(@RequestBody StringDTO stringDTO){
-		String tipo = "VENTANA";
-		String subtipo = "Tipo de vidrio/policarbonato";
+
 		try {
-			List<Env1Model> listaBusqueda = env1Service.obtenerPorTipoYSubtipo(tipo, subtipo);
-			Env1Model obtenido = env1Service.obtenerPorNombre(stringDTO.getData(), listaBusqueda);
-			return new ResponseEntity<Object>(new StringDTO(obtenido.getTransmitancia()+""), HttpStatus.OK);
+
+			TermicoDTO termico = env1ServiceGlobal.generalEnv1();
+			return new ResponseEntity<Object>(termico, HttpStatus.OK);
 
 		} catch (Exception e) {
 			return new ResponseEntity<Object>(new MensajeDTO("Hubo un problema"), HttpStatus.BAD_REQUEST);

@@ -1,4 +1,4 @@
-USE arquitectura;
+USE sql10493413;
 INSERT INTO env1part1 (TIPO,	SUBTIPO,	 NOMBRE, 	TRANSMITANCIA)
 VALUES
 ("VENTANA","Tipo de vidrio/policarbonato","vidrio simple incoloro (8 mm)","5.60"),

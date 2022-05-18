@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.arquitectura.app.dto.TermicoDTO;
 import com.arquitectura.app.excel.FormExcelGetData;
 import com.arquitectura.app.excel.FormExcelImporter;
 
@@ -46,8 +47,8 @@ public class Env1ServiceGlobal {
 	FormExcelGetData formExcelGetData;
 	
 	
-	public void generalEnv1() {
-		
+	public TermicoDTO generalEnv1() {
+		TermicoDTO termicoDTO = new TermicoDTO();
 		
 		String excelFilePath = FILE_DIRECTORY+"Formulario3.xlsx";
 		
@@ -56,13 +57,18 @@ public class Env1ServiceGlobal {
 			fileInputStream = new FileInputStream(excelFilePath);
 			Workbook workbook = new XSSFWorkbook(fileInputStream);
 			
-			this.ObtenerTransmitanciaPorArea(workbook);
-			
+			double env1section1and1 = this.ObtenerTransmitanciaPorArea(workbook);
+			termicoDTO.setEnvolvente1(env1section1and1+"");
 			fileInputStream.close();
+			
+			return termicoDTO;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return termicoDTO;
 		}
+		
+
 		
 	}
 	
@@ -165,7 +171,7 @@ public class Env1ServiceGlobal {
 		
 		//Cerrar file
 		logger.info(sumSU+"");
-		return 0.0;
+		return sumSU;
 	}
 	
 }
