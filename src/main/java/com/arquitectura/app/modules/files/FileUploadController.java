@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.dto.StringDTO;
-import com.arquitectura.app.modules.env1.Env1Model;
+import com.arquitectura.app.modules.termico.env1.Env1Model;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

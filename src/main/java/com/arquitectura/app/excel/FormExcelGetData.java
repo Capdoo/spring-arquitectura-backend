@@ -43,9 +43,7 @@ public class FormExcelGetData {
 
 		String target = "";
 
-		//String excelFilePath=FILE_DIRECTORY+"Formulario2.xlsx";
-		
-		//FileInputStream fileInputStream;
+
 		try {
 			//fileInputStream = new FileInputStream(excelFilePath);
 			//Workbook workbook = new XSSFWorkbook(fileInputStream);

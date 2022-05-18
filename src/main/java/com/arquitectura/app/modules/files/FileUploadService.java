@@ -10,8 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.arquitectura.app.dto.FileNombreDTO;
 import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.excel.FormExcelImporter;
-import com.arquitectura.app.modules.env1.Env1Service;
-import com.arquitectura.app.modules.env1.Env1ServiceGlobal;
+import com.arquitectura.app.modules.termico.env1.Env1Service;
+import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
 
 import java.io.File;
 import java.io.FileOutputStream;
