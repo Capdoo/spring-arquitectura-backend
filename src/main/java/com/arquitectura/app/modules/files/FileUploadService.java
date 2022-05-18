@@ -11,6 +11,7 @@ import com.arquitectura.app.dto.FileNombreDTO;
 import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.excel.FormExcelImporter;
 import com.arquitectura.app.modules.env1.Env1Service;
+import com.arquitectura.app.modules.env1.Env1ServiceGlobal;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,6 +33,9 @@ public class FileUploadService {
 	
 	@Autowired
 	FormExcelImporter formExcelImporter;
+	
+	@Autowired
+	Env1ServiceGlobal env1ServiceGlobal;
 
 	
 	private final static Logger logger = LoggerFactory.getLogger(FileUploadService.class);
@@ -39,8 +43,8 @@ public class FileUploadService {
 	
 	public ResponseEntity<Object> fileUpload(MultipartFile file) throws IOException{
 		
-		formExcelImporter.excelImport();
-		
+		//formExcelImporter.excelImport();
+		env1ServiceGlobal.generalEnv1();
 		
 		logger.info("Proceso de subida : documento XLSX");
 		logger.info("Ruta establecida:" + FILE_DIRECTORY+file.getOriginalFilename());

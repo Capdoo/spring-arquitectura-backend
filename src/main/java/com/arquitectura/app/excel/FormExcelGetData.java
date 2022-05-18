@@ -18,56 +18,40 @@ public class FormExcelGetData {
 
 	@Value("${file.upload-dir}")
 	String FILE_DIRECTORY;
-	
+
+	private Workbook workbook;
+	private String columna;
+	private String fila;
 	
 	private final static Logger logger = LoggerFactory.getLogger(FormExcelGetData.class);
 
 	
-	public String getDataFromRowAndColumn(int fila, String columna) {
+	public FormExcelGetData() {
+		super();
+	}
+
+	public FormExcelGetData(Workbook workbook) {
+		super();
+		this.workbook = workbook;
+	}
+
+
+	public String getDataStringColumnAndRow(String columna, String fila) {
 		
-		int filaUsable = this.getRowFromNumber(fila);
+		int filaUsable = this.getRowFromNumber(Integer.parseInt(fila));
 		int columnaUsable = this.getColumnFromLetter(columna);
 
-		
 		String target = "";
-	
-		
-		String excelFilePath=FILE_DIRECTORY+"Formulario2.xlsx";
-		
-		FileInputStream fileInputStream;
-		try {
-			fileInputStream = new FileInputStream(excelFilePath);
-			Workbook workbook = new XSSFWorkbook(fileInputStream);
-			
-			Sheet firstSheet = workbook.getSheetAt(0); 
-			Iterator<Row> rowIterator = firstSheet.iterator();
-			//Para empezar en la segunda fila
-			//rowIterator.next();
-			
-			System.out.print(firstSheet.getPhysicalNumberOfRows() +" ");
-			//logger.info(firstSheet.getPhysicalNumberOfRows()+"");
-			
-			int i = 0;
-			
-			while(rowIterator.hasNext() && i<filaUsable) {
-				Row nextRow = rowIterator.next();
-				Iterator<Cell> cellIterator = nextRow.cellIterator();
-				
-				while(cellIterator.hasNext()) {
-					
-					Cell nextCell = cellIterator.next();
-					int columnIndex = nextCell.getColumnIndex();
-					
-					if(columnIndex==columnaUsable) {
-						target = nextCell.getStringCellValue();
-						//logger.info(target);
-					}
-					
-				}
-				i+=1;
-				//logger.info("Contador: "+i);
 
-			}
+		//String excelFilePath=FILE_DIRECTORY+"Formulario2.xlsx";
+		
+		//FileInputStream fileInputStream;
+		try {
+			//fileInputStream = new FileInputStream(excelFilePath);
+			//Workbook workbook = new XSSFWorkbook(fileInputStream);
+			
+			Cell c = this.workbook.getSheetAt(0).getRow(filaUsable).getCell(columnaUsable);
+			target = c.getStringCellValue();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,6 +62,31 @@ public class FormExcelGetData {
 	
 	
 	
+	
+
+	public double getDataDecimalFromColumnAndRow(String columna, String fila) {
+		
+		int filaUsable = this.getRowFromNumber(Integer.parseInt(fila));
+		int columnaUsable = this.getColumnFromLetter(columna);
+
+		double target = 99.99;
+
+		//String excelFilePath=FILE_DIRECTORY+"Formulario2.xlsx";
+		
+		//FileInputStream fileInputStream;
+		try {
+			//fileInputStream = new FileInputStream(excelFilePath);
+			//Workbook workbook = new XSSFWorkbook(fileInputStream);
+			
+			Cell c = this.workbook.getSheetAt(0).getRow(filaUsable).getCell(columnaUsable);
+			target = c.getNumericCellValue();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return target;
+	}
 	
 	
 	
