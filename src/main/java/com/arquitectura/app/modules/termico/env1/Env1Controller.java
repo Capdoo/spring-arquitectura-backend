@@ -26,8 +26,10 @@ public class Env1Controller {
 	@Autowired
 	Env1ServiceGlobal env1ServiceGlobal;
 	
-	@PostMapping("/obtenerTransmitancia")
-	public ResponseEntity<Object> obtener(@RequestBody StringDTO stringDTO){
+//	@PostMapping("/obtenerTransmitancia")
+//	public ResponseEntity<Object> obtener(@RequestBody StringDTO stringDTO){
+	@GetMapping("/obtenerTransmitancia")
+	public ResponseEntity<Object> obtener(){
 
 		try {
 
