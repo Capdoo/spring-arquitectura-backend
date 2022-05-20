@@ -14,6 +14,7 @@ import com.arquitectura.app.dto.EvaluacionDTO;
 import com.arquitectura.app.dto.LuminicoDTO;
 import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.dto.TermicoDTO;
+import com.arquitectura.app.modules.files.FileUploadService;
 import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
 
 @RestController
@@ -23,15 +24,25 @@ public class EvaluacionController {
 	@Autowired
 	EvaluacionService evaluacionService;
 	
+	@Autowired
+	Env1ServiceGlobal env1ServiceGlobal;
+	
+	@Autowired
+	FileUploadService fileUploadService;
+	
 	@PostMapping("/iniciar")
 	public ResponseEntity<Object> obtener(@RequestParam("File") MultipartFile file){
 
 		try {
 
-			TermicoDTO termico = evaluacionService.evaluarTermico();
-			LuminicoDTO luminico = new LuminicoDTO();
-			luminico.setGeneric("Baa");
+			//Obtener el archivo y guardarlo
+			String nameFile = fileUploadService.processNameFile(file);
 			
+			TermicoDTO termico = evaluacionService.evaluarTermico(nameFile);
+			LuminicoDTO luminico = new LuminicoDTO();
+				luminico.setGeneric("Test");
+			
+
 			EvaluacionDTO evaluacionEnviar = new EvaluacionDTO(termico, luminico);
 			
 			return new ResponseEntity<Object>(evaluacionEnviar, HttpStatus.OK);

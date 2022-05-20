@@ -33,7 +33,7 @@ public class Env1Controller {
 
 		try {
 
-			TermicoDTO termico = env1ServiceGlobal.generalEnv1();
+			TermicoDTO termico = env1ServiceGlobal.generalEnv1("Nothing");
 			return new ResponseEntity<Object>(termico, HttpStatus.OK);
 
 		} catch (Exception e) {

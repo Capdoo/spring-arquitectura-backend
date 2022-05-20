@@ -12,9 +12,9 @@ public class EvaluacionService {
 	@Autowired
 	Env1ServiceGlobal env1GlobalService;
 	
-	public TermicoDTO evaluarTermico() {
+	public TermicoDTO evaluarTermico(String fileName) {
 		TermicoDTO termicoEvaluacion = new TermicoDTO();
-		termicoEvaluacion = env1GlobalService.generalEnv1();
+		termicoEvaluacion = env1GlobalService.generalEnv1(fileName);
 		return termicoEvaluacion;
 		
 	}

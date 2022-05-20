@@ -41,10 +41,44 @@ public class FileUploadService {
 	private final static Logger logger = LoggerFactory.getLogger(FileUploadService.class);
 	
 	
+	public String processNameFile(MultipartFile file) throws IOException{
+		//formExcelImporter.excelImport();
+		//env1ServiceGlobal.generalEnv1();
+		
+		logger.info("Proceso de subida : documento XLSX");
+		logger.info("Ruta establecida:" + FILE_DIRECTORY+file.getOriginalFilename());
+		
+		
+		try {
+			if(!isCorrectFileExt(file.getOriginalFilename()))
+				return null;	
+		
+			String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(Calendar.getInstance().getTime());
+		
+			//Asignar nombre respectivo
+			String newName = generateNameFileCertif("FORM","PRUEBA_DIA3",timeStamp);
+
+			File primerRequi  = new File(FILE_DIRECTORY+newName); 
+			primerRequi.createNewFile();
+			FileOutputStream fos = new FileOutputStream(primerRequi);
+			fos.write(file.getBytes());
+			fos.close();
+			
+			return newName;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;	
+
+		}
+	}
+	
+	
+	
 	public ResponseEntity<Object> fileUpload(MultipartFile file) throws IOException{
 		
 		//formExcelImporter.excelImport();
-		env1ServiceGlobal.generalEnv1();
+		//env1ServiceGlobal.generalEnv1();
 		
 		logger.info("Proceso de subida : documento XLSX");
 		logger.info("Ruta establecida:" + FILE_DIRECTORY+file.getOriginalFilename());
@@ -115,15 +149,12 @@ public class FileUploadService {
 	public boolean isCorrectFileExt(String nombreFile) {
 		String suffix = nombreFile.substring (nombreFile.lastIndexOf (".") + 1);
 		
-		if(isPdfFile(suffix)) {
-			return true;
-		}else {
-			return false;
-		}
+		return this.isXlsxFile(suffix);
+		
 	}
 	
 	//Verifica si el sufijo es .pdf
-	public boolean isPdfFile(String suffixFile) {
+	public boolean isXlsxFile(String suffixFile) {
 		if(suffixFile.equals("xlsx")) {
 			return true;
 		}else {

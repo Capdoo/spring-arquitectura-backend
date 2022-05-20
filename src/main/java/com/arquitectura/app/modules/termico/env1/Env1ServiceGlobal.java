@@ -47,10 +47,10 @@ public class Env1ServiceGlobal {
 	FormExcelGetData formExcelGetData;
 	
 	
-	public TermicoDTO generalEnv1() {
+	public TermicoDTO generalEnv1(String fileName) {
 		TermicoDTO termicoDTO = new TermicoDTO();
 		
-		String excelFilePath = FILE_DIRECTORY+"Formulario3.xlsx";
+		String excelFilePath = FILE_DIRECTORY+fileName;
 		
 		FileInputStream fileInputStream;
 		try {
