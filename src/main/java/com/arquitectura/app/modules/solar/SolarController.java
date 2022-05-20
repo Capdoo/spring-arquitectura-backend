@@ -1,4 +1,4 @@
-package com.arquitectura.app.modules.condensadores;
+package com.arquitectura.app.modules.solar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,16 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.arquitectura.app.dto.SolarDTO;
 
 @RestController
-@RequestMapping("/condensadores")
-public class CondController {
+@RequestMapping("/solar")
+public class SolarController {
 	@Autowired
-	CondService condService;
+	SolarService solarService;
 	
 	@GetMapping(" ")
 	public ResponseEntity<Object> obtenerDatosCondensadores(){
-		CondDTO cond = condService.generalCond();
-		return new ResponseEntity<Object>(cond, HttpStatus.OK);
+		SolarDTO solar = solarService.generalSolar();
+		return new ResponseEntity<Object>(solar, HttpStatus.OK);
 	}
 }
