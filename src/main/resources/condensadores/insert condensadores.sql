@@ -3,7 +3,7 @@ insert into	edificacion_ti()
 values
 	('Bibliotecas, archivos' ,16.5),
 	('Cantinas' ,18.0),
-	('Cines y teatro' ,20.0),
+	('Cines y teatros' ,20.0),
     ('Cocinas' ,20.0),
     ('Escuela (aula)' ,20.0),
     ('Escuela (gimnasio)' ,16.5),

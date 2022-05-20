@@ -27,6 +27,11 @@ public class SolarModel {
 	private int este;
 
 	
+	public SolarModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public SolarModel(int id, int norte, int sur, int oeste, int este) {
 		super();
 		this.id = id;
