@@ -7,16 +7,20 @@ public class TermicoDTO {
 	private String envolvente3;
 	private String envolvente4;
 	
+	private boolean isCumple;
+	
 	public TermicoDTO() {
 		super();
 	}
 
-	public TermicoDTO(String envolvente1, String envolvente2, String envolvente3, String envolvente4) {
+	public TermicoDTO(String envolvente1, String envolvente2, String envolvente3, String envolvente4,
+			boolean isCumple) {
 		super();
 		this.envolvente1 = envolvente1;
 		this.envolvente2 = envolvente2;
 		this.envolvente3 = envolvente3;
 		this.envolvente4 = envolvente4;
+		this.isCumple = isCumple;
 	}
 
 	public String getEnvolvente1() {
@@ -44,4 +48,13 @@ public class TermicoDTO {
 		this.envolvente4 = envolvente4;
 	}
 
+	public boolean isCumple() {
+		return isCumple;
+	}
+
+	public void setCumple(boolean isCumple) {
+		this.isCumple = isCumple;
+	}
+
+	
 }
