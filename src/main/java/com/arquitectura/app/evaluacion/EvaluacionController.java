@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.arquitectura.app.dto.EvaluacionDTO;
 import com.arquitectura.app.dto.LuminicoDTO;
 import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.dto.TermicoDTO;
@@ -36,9 +35,12 @@ public class EvaluacionController {
 		try {
 
 			//Obtener el archivo y guardarlo
-			String nameFile = fileUploadService.processNameFile(file);
+			//String nameFile = fileUploadService.processNameFile(file);
+			String urlFile = fileUploadService.fileUploadCloud(file);
 			
-			TermicoDTO termico = evaluacionService.evaluarTermico(nameFile);
+			TermicoDTO termico = evaluacionService.evaluarTermico(urlFile);
+			
+			//TermicoDTO termico = new TermicoDTO();
 			LuminicoDTO luminico = new LuminicoDTO();
 				luminico.setGeneric("Test");
 			

@@ -12,12 +12,16 @@ import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.excel.FormExcelImporter;
 import com.arquitectura.app.modules.termico.env1.Env1Service;
 import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Calendar;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,9 +45,28 @@ public class FileUploadService {
 	private final static Logger logger = LoggerFactory.getLogger(FileUploadService.class);
 	
 	
+	public String fileUploadCloud(MultipartFile fileFormData) throws IOException {
+		Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+				"cloud_name", "unmsm234",
+				"api_key", "872387794637319",
+				"api_secret", "xF-9FwzZamaUbqtmWNbBcweiJoU",
+				"secure", true));
+		
+		File fileSave = new File("trydoc.xlsx");
+		fileSave.createNewFile();
+		
+		try (FileOutputStream outputStream = new FileOutputStream(fileSave)){
+			outputStream.write(fileFormData.getBytes());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Map uploadResult = cloudinary.uploader().upload(fileSave, ObjectUtils.asMap("resource_type", "auto"));
+		return (String) uploadResult.get("url");
+	}
+	
+	
 	public String processNameFile(MultipartFile file) throws IOException{
-		//formExcelImporter.excelImport();
-		//env1ServiceGlobal.generalEnv1();
 		
 		logger.info("Proceso de subida : documento XLSX");
 		logger.info("Ruta establecida:" + FILE_DIRECTORY+file.getOriginalFilename());
@@ -58,7 +81,7 @@ public class FileUploadService {
 			//Asignar nombre respectivo
 			String newName = generateNameFileCertif("FORM","PRUEBA_DIA3",timeStamp);
 
-			File primerRequi  = new File(FILE_DIRECTORY+newName); 
+			File primerRequi  = new File(FILE_DIRECTORY+newName);
 			primerRequi.createNewFile();
 			FileOutputStream fos = new FileOutputStream(primerRequi);
 			fos.write(file.getBytes());

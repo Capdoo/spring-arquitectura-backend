@@ -1,4 +1,7 @@
-package com.arquitectura.app.dto;
+package com.arquitectura.app.evaluacion;
+
+import com.arquitectura.app.dto.LuminicoDTO;
+import com.arquitectura.app.dto.TermicoDTO;
 
 public class EvaluacionDTO {
 

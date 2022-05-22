@@ -1,6 +1,12 @@
 package com.arquitectura.app.modules.termico.env1;
 
+import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -47,14 +53,32 @@ public class Env1ServiceGlobal {
 	FormExcelGetData formExcelGetData;
 	
 	
-	public TermicoDTO generalEnv1(String fileName) {
+	public TermicoDTO generalEnv1(String FILE_NAME) throws MalformedURLException, IOException {
+					
+//		File primerRequi  = new File("save\\DAO.xlsx");
+		String PATH_FILE_SERVER = "save/DAO.xlsx";
+		File primerRequi  = new File(PATH_FILE_SERVER);
+
+		primerRequi.createNewFile();
+
+		try (BufferedInputStream in = new BufferedInputStream(new URL(FILE_NAME).openStream());
+				  FileOutputStream fileOutputStream = new FileOutputStream(primerRequi)) {
+				    byte dataBuffer[] = new byte[1024];
+				    int bytesRead;
+				    while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+				        fileOutputStream.write(dataBuffer, 0, bytesRead);
+				    }
+					fileOutputStream.close();
+				} catch (IOException e) {
+				    // handle exception
+				}
+
 		TermicoDTO termicoDTO = new TermicoDTO();
-		
-		String excelFilePath = FILE_DIRECTORY+fileName;
-		
+				
 		FileInputStream fileInputStream;
 		try {
-			fileInputStream = new FileInputStream(excelFilePath);
+			fileInputStream = new FileInputStream(PATH_FILE_SERVER);
+			
 			Workbook workbook = new XSSFWorkbook(fileInputStream);
 			
 			double env1section1and1 = this.ObtenerTransmitanciaPorArea(workbook);
