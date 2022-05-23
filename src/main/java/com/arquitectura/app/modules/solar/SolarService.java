@@ -1,6 +1,7 @@
 package com.arquitectura.app.modules.solar;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.arquitectura.app.dto.SolarDTO;
 import com.arquitectura.app.excel.FormExcelGetData;
+import com.arquitectura.app.excel.FormExcelImporter;
 
 @Service
 public class SolarService {
@@ -18,33 +20,35 @@ public class SolarService {
 	
 	@Autowired
 	FormExcelGetData formExcelGetData;
+	
+	@Autowired
+	FormExcelImporter formExcelImporter;
 
 	@Value("${file.upload-dir}")
 	String FILE_DIRECTORY;
 	
 	public SolarDTO generalSolar() {
-		String excelFilePath = FILE_DIRECTORY+"Solar.xlsx";
-		
-		FileInputStream fileInputStream;
-		try {
-			fileInputStream = new FileInputStream(excelFilePath);
-			Workbook workbook = new XSSFWorkbook(fileInputStream);
-			SolarDTO data = this.ObtenerDatosExcel(workbook);
-			fileInputStream.close();
-			return data;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}	
+		/*
+		 * String excelFilePath = FILE_DIRECTORY+"Solar.xlsx";
+		 * 
+		 * FileInputStream fileInputStream; try { fileInputStream = new
+		 * FileInputStream(excelFilePath); Workbook workbook = new
+		 * XSSFWorkbook(fileInputStream); SolarDTO data =
+		 * this.ObtenerDatosExcel(workbook); fileInputStream.close(); return data; }
+		 * catch (Exception e) { e.printStackTrace(); return null; }
+		 */
+		return null;
 	}
 	
-	public SolarDTO ObtenerDatosExcel(Workbook workbook) {
-		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
+	public SolarDTO ObtenerDatosExcel(String FILE_URL, String FILE_NAME) throws IOException {
+		Workbook worbookObtenido = formExcelImporter.obtenerWorkbookDeFileUrl(FILE_URL, FILE_NAME);
+		FormExcelGetData excelGetData = new FormExcelGetData(worbookObtenido);
+		excelGetData.setNroHoja(4);
 		String orientacion = excelGetData.getDataStringColumnAndRow("C", "6");
-		int num = (int)excelGetData.getDataDecimalFromColumnAndRow("C", "7");
+		double num = excelGetData.getDataDecimalFromColumnAndRow("C", "7");
 		
 		
-		return new SolarDTO("Falta tabla provincia",orientacion,buscarAngulo(num, orientacion));
+		return new SolarDTO("Falta tabla provincia",orientacion,buscarAngulo((int)num, orientacion));
 	}
 	
 	public int buscarAngulo(int id, String orientacion) {

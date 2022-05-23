@@ -1,4 +1,4 @@
-package com.arquitectura.app.modules.condensadores;
+package com.arquitectura.app.dto;
 
 public class CondDTO {
 	private float tsi_muro;
@@ -28,6 +28,11 @@ public class CondDTO {
 	}
 	public void setHr(int hr) {
 		this.hr = hr;
+	}
+	
+	public CondDTO() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public CondDTO(float tsi_muro, float tsi_techo, float tsi_piso, int hr) {
 		super();

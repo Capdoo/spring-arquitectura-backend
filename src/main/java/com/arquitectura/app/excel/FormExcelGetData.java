@@ -83,7 +83,7 @@ public class FormExcelGetData {
 			//fileInputStream = new FileInputStream(excelFilePath);
 			//Workbook workbook = new XSSFWorkbook(fileInputStream);
 			
-			Cell c = this.workbook.getSheetAt(0).getRow(filaUsable).getCell(columnaUsable);
+			Cell c = this.workbook.getSheetAt(this.nroHoja-1).getRow(filaUsable).getCell(columnaUsable);
 			target = c.getNumericCellValue();
 
 		} catch (Exception e) {

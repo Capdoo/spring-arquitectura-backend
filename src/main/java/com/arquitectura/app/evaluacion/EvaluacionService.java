@@ -6,8 +6,12 @@ import java.net.MalformedURLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.arquitectura.app.dto.CondDTO;
 import com.arquitectura.app.dto.LuminicoDTO;
+import com.arquitectura.app.dto.SolarDTO;
 import com.arquitectura.app.dto.TermicoDTO;
+import com.arquitectura.app.modules.condensadores.CondService;
+import com.arquitectura.app.modules.solar.SolarService;
 import com.arquitectura.app.modules.termico.TermicoService;
 import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
 
@@ -18,7 +22,13 @@ public class EvaluacionService {
 	Env1ServiceGlobal env1GlobalService;
 	
 	@Autowired
+	CondService condService;
+	
+	@Autowired
 	TermicoService termicoService;
+	
+	@Autowired
+	SolarService solarService;
 	
 	//Evaluacion Termico
 	public TermicoDTO evaluarTermico(String fileUrl, String fileName) throws MalformedURLException, IOException {
@@ -28,6 +38,13 @@ public class EvaluacionService {
 		
 	}
 	
+	//Evaluacion Condensadores
+	public CondDTO evaluarCondensadores(String fileUrl, String fileName) throws MalformedURLException, IOException {
+		CondDTO condensadoresEvaluacion = new CondDTO();
+		condensadoresEvaluacion = condService.ObtenerDatosExcel(fileUrl, fileName);
+		return condensadoresEvaluacion;
+	}
+	
 	//Evaluacion Luminico
 	public LuminicoDTO evaluarLuminico(String fileName) {
 		LuminicoDTO luminico = new LuminicoDTO();
@@ -35,7 +52,13 @@ public class EvaluacionService {
 		return luminico;
 	}
 	
-
+	//Evaluacion Solar
+	public SolarDTO evaluarSolar(String fileUrl, String fileName) throws MalformedURLException, IOException {
+		SolarDTO solarEvaluacion = new SolarDTO();
+		solarEvaluacion = solarService.ObtenerDatosExcel(fileUrl, fileName);
+		return solarEvaluacion;
+	}
+	
 	
 
 }

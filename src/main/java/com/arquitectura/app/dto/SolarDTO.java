@@ -29,6 +29,10 @@ public class SolarDTO {
 	public void setAngulo_recomendado(int angulo_recomendado) {
 		this.angulo_recomendado = angulo_recomendado;
 	}
+	public SolarDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

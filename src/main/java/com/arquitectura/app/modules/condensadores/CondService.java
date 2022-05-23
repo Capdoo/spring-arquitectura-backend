@@ -1,6 +1,7 @@
 package com.arquitectura.app.modules.condensadores;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -8,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.arquitectura.app.dto.CondDTO;
 import com.arquitectura.app.excel.FormExcelGetData;
+import com.arquitectura.app.excel.FormExcelImporter;
 
 @Service
 public class CondService {
@@ -20,30 +23,30 @@ public class CondService {
 	
 	@Autowired
 	FormExcelGetData formExcelGetData;
+	
+	@Autowired
+	FormExcelImporter formExcelImporter;
 
 	@Value("${file.upload-dir}")
 	String FILE_DIRECTORY;
 	
 	public CondDTO generalCond() {
-		String excelFilePath = FILE_DIRECTORY+"Condensadores.xlsx";
+		/*
+		 * String excelFilePath = FILE_DIRECTORY+"Condensadores.xlsx";
+		 * 
+		 * FileInputStream fileInputStream; try { fileInputStream = new
+		 * FileInputStream(excelFilePath); Workbook workbook = new
+		 * XSSFWorkbook(fileInputStream); CondDTO data =
+		 * this.ObtenerDatosExcel(workbook); fileInputStream.close(); return data; }
+		 * catch (Exception e) { e.printStackTrace(); return null; }
+		 */
 		
-		FileInputStream fileInputStream;
-		try {
-			fileInputStream = new FileInputStream(excelFilePath);
-			Workbook workbook = new XSSFWorkbook(fileInputStream);
-			CondDTO data = this.ObtenerDatosExcel(workbook);
-			fileInputStream.close();
-			return data;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-		
-		
+		return null;
 	}
 
-	public CondDTO ObtenerDatosExcel(Workbook workbook) {
-		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
+	public CondDTO ObtenerDatosExcel(String FILE_URL, String FILE_NAME) throws IOException {
+		Workbook worbookObtenido = formExcelImporter.obtenerWorkbookDeFileUrl(FILE_URL, FILE_NAME);
+		FormExcelGetData excelGetData = new FormExcelGetData(worbookObtenido);
 		int zona = (int)excelGetData.getDataDecimalFromColumnAndRow("D", "6");
 		String tipo_ed = excelGetData.getDataStringColumnAndRow("D", "7");
 		
