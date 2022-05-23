@@ -20,8 +20,11 @@ public class FormExcelGetData {
 	String FILE_DIRECTORY;
 
 	private Workbook workbook;
+	private int nroHoja;
+	
 	private String columna;
 	private String fila;
+	
 	
 	private final static Logger logger = LoggerFactory.getLogger(FormExcelGetData.class);
 
@@ -36,6 +39,16 @@ public class FormExcelGetData {
 	}
 
 
+	
+	
+	public int getNroHoja() {
+		return nroHoja;
+	}
+
+	public void setNroHoja(int nroHoja) {
+		this.nroHoja = nroHoja;
+	}
+
 	public String getDataStringColumnAndRow(String columna, String fila) {
 		
 		int filaUsable = this.getRowFromNumber(Integer.parseInt(fila));
@@ -43,12 +56,9 @@ public class FormExcelGetData {
 
 		String target = "";
 
-
 		try {
-			//fileInputStream = new FileInputStream(excelFilePath);
-			//Workbook workbook = new XSSFWorkbook(fileInputStream);
-			
-			Cell c = this.workbook.getSheetAt(0).getRow(filaUsable).getCell(columnaUsable);
+
+			Cell c = this.workbook.getSheetAt(this.nroHoja-1).getRow(filaUsable).getCell(columnaUsable);
 			target = c.getStringCellValue();
 
 		} catch (Exception e) {
@@ -59,9 +69,6 @@ public class FormExcelGetData {
 	}
 	
 	
-	
-	
-
 	public double getDataDecimalFromColumnAndRow(String columna, String fila) {
 		
 		int filaUsable = this.getRowFromNumber(Integer.parseInt(fila));

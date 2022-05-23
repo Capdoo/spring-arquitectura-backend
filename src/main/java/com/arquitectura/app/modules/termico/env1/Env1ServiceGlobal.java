@@ -52,50 +52,6 @@ public class Env1ServiceGlobal {
 	@Autowired
 	FormExcelGetData formExcelGetData;
 	
-	
-	public TermicoDTO generalEnv1(String FILE_NAME) throws MalformedURLException, IOException {
-					
-//		File primerRequi  = new File("save\\DAO.xlsx");
-		String PATH_FILE_SERVER = "save/DAO.xlsx";
-		File primerRequi  = new File(PATH_FILE_SERVER);
-
-		primerRequi.createNewFile();
-
-		try (BufferedInputStream in = new BufferedInputStream(new URL(FILE_NAME).openStream());
-				  FileOutputStream fileOutputStream = new FileOutputStream(primerRequi)) {
-				    byte dataBuffer[] = new byte[1024];
-				    int bytesRead;
-				    while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
-				        fileOutputStream.write(dataBuffer, 0, bytesRead);
-				    }
-					fileOutputStream.close();
-				} catch (IOException e) {
-				    // handle exception
-				}
-
-		TermicoDTO termicoDTO = new TermicoDTO();
-				
-		FileInputStream fileInputStream;
-		try {
-			fileInputStream = new FileInputStream(PATH_FILE_SERVER);
-			
-			Workbook workbook = new XSSFWorkbook(fileInputStream);
-			
-			double env1section1and1 = this.ObtenerTransmitanciaPorArea(workbook);
-			termicoDTO.setEnvolvente1(env1section1and1+"");
-			fileInputStream.close();
-			
-			return termicoDTO;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return termicoDTO;
-		}
-		
-
-		
-	}
-	
 	public double ObtenerTransmitanciaPorArea(Workbook workbook) {
 		
 		String elementoNombre1 = "";
@@ -115,6 +71,7 @@ public class Env1ServiceGlobal {
 
 		
 		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
+			excelGetData.setNroHoja(1);
 		
 		//1.
 			//1.1 Elemento 1

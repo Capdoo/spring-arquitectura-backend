@@ -1,7 +1,12 @@
 package com.arquitectura.app.excel;
 
+import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Iterator;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -26,8 +31,45 @@ public class FormExcelImporter {
 	
 	private final static Logger logger = LoggerFactory.getLogger(FormExcelImporter.class);
 
+	//Acordado
+	public Workbook obtenerWorkbookDeFileUrl(String FILE_URL, String FILE_NAME) throws IOException {
+		//Windows
+		String PATH_FILE_SERVER = "save\\"+FILE_NAME;
+		File primerRequi  = new File(PATH_FILE_SERVER);
 	
+			//Linux Server
+			//String PATH_FILE_SERVER = "save/DAO.xlsx";
+			//File primerRequi  = new File(PATH_FILE_SERVER);
+
+		primerRequi.createNewFile();
+
+		try (BufferedInputStream in = new BufferedInputStream(new URL(FILE_URL).openStream());
+			  FileOutputStream fileOutputStream = new FileOutputStream(primerRequi)) {
+			    byte dataBuffer[] = new byte[1024];
+			    int bytesRead;
+			    while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+			        fileOutputStream.write(dataBuffer, 0, bytesRead);
+			    }
+				fileOutputStream.close();
+			} catch (IOException e) {
+			    e.printStackTrace();
+			}
+			
+		FileInputStream fileInputStream;
+		try {
+			fileInputStream = new FileInputStream(PATH_FILE_SERVER);
+			Workbook workbook = new XSSFWorkbook(fileInputStream);
+			fileInputStream.close();
+			
+			return workbook;
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
+	//Antiguo (solo de guia)
 	public String excelImport() {
 		
 		String excelFilePath = FILE_DIRECTORY+"Formulario2.xlsx";
@@ -50,10 +92,6 @@ public class FormExcelImporter {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-
 
 		return "";
 	}
