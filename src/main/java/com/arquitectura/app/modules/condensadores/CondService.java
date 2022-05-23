@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.arquitectura.app.dto.CondDTO;
 import com.arquitectura.app.excel.FormExcelGetData;
 import com.arquitectura.app.excel.FormExcelImporter;
 

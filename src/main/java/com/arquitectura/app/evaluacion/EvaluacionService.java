@@ -6,10 +6,10 @@ import java.net.MalformedURLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.arquitectura.app.dto.CondDTO;
 import com.arquitectura.app.dto.LuminicoDTO;
 import com.arquitectura.app.dto.SolarDTO;
 import com.arquitectura.app.dto.TermicoDTO;
+import com.arquitectura.app.modules.condensadores.CondDTO;
 import com.arquitectura.app.modules.condensadores.CondService;
 import com.arquitectura.app.modules.solar.SolarService;
 import com.arquitectura.app.modules.termico.TermicoService;

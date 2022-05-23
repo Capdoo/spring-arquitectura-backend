@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.arquitectura.app.dto.CondDTO;
 import com.arquitectura.app.dto.LuminicoDTO;
 import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.dto.SolarDTO;
 import com.arquitectura.app.dto.TermicoDTO;
+import com.arquitectura.app.modules.condensadores.CondDTO;
 import com.arquitectura.app.modules.files.FileUploadService;
 import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
 
