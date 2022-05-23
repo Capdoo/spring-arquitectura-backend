@@ -36,13 +36,11 @@ public class EvaluacionController {
 
 			//Obtener el archivo y guardarlo
 			//String nameFile = fileUploadService.processNameFile(file);
-			String urlFile = fileUploadService.fileUploadCloud(file);
+			CloudinaryDTO cloud = fileUploadService.fileUploadCloud(file);
 			
-			TermicoDTO termico = evaluacionService.evaluarTermico(urlFile);
-			
-			//TermicoDTO termico = new TermicoDTO();
-			LuminicoDTO luminico = new LuminicoDTO();
-				luminico.setGeneric("Test");
+			TermicoDTO termico = evaluacionService.evaluarTermico(cloud.getUrlFile(), cloud.getNameUniqueFile());
+			LuminicoDTO luminico = evaluacionService.evaluarLuminico(cloud.getUrlFile());
+
 			
 
 			EvaluacionDTO evaluacionEnviar = new EvaluacionDTO(termico, luminico);

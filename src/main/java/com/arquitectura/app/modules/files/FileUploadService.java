@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.arquitectura.app.dto.FileNombreDTO;
 import com.arquitectura.app.dto.MensajeDTO;
+import com.arquitectura.app.evaluacion.CloudinaryDTO;
 import com.arquitectura.app.excel.FormExcelImporter;
 import com.arquitectura.app.modules.termico.env1.Env1Service;
 import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
@@ -45,7 +46,9 @@ public class FileUploadService {
 	private final static Logger logger = LoggerFactory.getLogger(FileUploadService.class);
 	
 	
-	public String fileUploadCloud(MultipartFile fileFormData) throws IOException {
+	public CloudinaryDTO fileUploadCloud(MultipartFile fileFormData) throws IOException {
+		CloudinaryDTO cloudinaryDTO = new CloudinaryDTO();
+		
 		Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
 				"cloud_name", "unmsm234",
 				"api_key", "872387794637319",
@@ -62,7 +65,13 @@ public class FileUploadService {
 		}
 
 		Map uploadResult = cloudinary.uploader().upload(fileSave, ObjectUtils.asMap("resource_type", "auto"));
-		return (String) uploadResult.get("url");
+		
+		cloudinaryDTO.setNameUniqueFile((String) uploadResult.get("public_id"));
+		cloudinaryDTO.setUrlFile((String) uploadResult.get("url"));
+		
+		return cloudinaryDTO;
+		
+		//return (String) uploadResult.get("url");
 	}
 	
 	
