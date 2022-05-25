@@ -28,6 +28,7 @@ public class SpringArquitecturaBackendApplication {
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
+	//new comment
 		//corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
 		corsConfiguration.setAllowedOrigins(Arrays.asList("https://precious-melomakarona-380a99.netlify.app"));
 
