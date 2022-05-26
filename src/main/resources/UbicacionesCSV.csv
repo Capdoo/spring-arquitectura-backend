@@ -1,0 +1,233 @@
+﻿N;ALTITUD;CIUDAD;DEPARTAMENTO;DISTRITO;LATITUD;LONGITUD;N_ESTACION;N_ZONA;PROVINCIA;RANGO;ZONA_CLIMÁTICA
+1;3468;Chacoche;Apurimac;Chacoche;-13° 56';-72° 59';669;4;Abancay (4 Mesoandino);3000 - 4000;Mesoandino
+2;2763;Curahuasi;Apurimac;Curahuasi;-13° 33';-72° 44';677;7;Abancay (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+3;3236;Acobamba;Huancavelica;Acobamba;-12° 51';-74° 34';659;4;Acobamba;3000 - 4000;Mesoandino
+4;3160;Acomayo;Cusco;Acomayo;-13° 55';-71° 41';687;4;Acomayo;3000 - 4000;Mesoandino
+5;3427;Aija;Ancash;Aija;-09° 46';-77° 36';404;4;Aija;3000 - 4000;Mesoandino
+6;120;Yurimaguas;Loreto;Yurimaguas;-05° 56';-76° 05';278;9;Alto Amazonas;400 - 1000;Tropical Húmedo
+7;3000;San Rafael;Huánuco;San Rafael;-10° 20';-76° 10';552;4;Ambo (4 Mesoandino);3000 - 4000;Mesoandino
+8;2076;Ambo;Huánuco;Ambo;-10° 07';-76° 12';377;7;Ambo (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+9;2866;Andahuaylas;Apurimac;Andahuaylas;-13° 39';-73° 22';669;4;Andahuaylas;3000 - 4000;Mesoandino
+10;3372;Lircay;Huancavelica;Lircay;-12° 59';-74° 43';657;6;Angaraes;4800 - 5800;Nevado
+11;3382;Pucyura;Cusco;Pucyura;-13° 29';-72° 07';684;4;Anta;3000 - 4000;Mesoandino
+12;3640;Antabamba;Apurimac;Antabamba;-14° 21';-72° 52';757;5;Antabamba;4000 - 4800;Alto Andino
+13;3457;Llamerin;Ancash;Llamerin;-09° 06';-77° 01';404;4;Antonio Raimondi;3000 - 4000;Mesoandino
+14;3045;Pocsi;Arequipa;Pocsi;-16° 31';-72° 23';800;4;Arequipa;3000 - 4000;Mesoandino
+15;238;Ascope;La Libertad;Ascope;-07° 42';-79° 06';230;2;Ascope;400 - 2000;Desértico 
+16;3336;Chacas;Ancash;Chacas;-09° 09';-77° 22';404;4;Asunción (4 Mesoandino);3000 - 4000;Mesoandino
+17;2980;Acocacha;Ancash;Acocacha;-09° 06';-77° 22';444;6;Asunción (6 Nevado);4800 - 5800;Nevado
+18;228;Atalaya;Ucayali;Raymondi;-10° 43';-73° 45';459;9;Atalaya;400 - 1000;Tropical Húmedo
+19;2666;Ayabaca;Piura;Ayabaca;-04° 05';-79° 99';359;4;Ayabaca (4 Mesoandino);3000 - 4000;Mesoandino
+20;2700;Ayabaca;Piura;Ayabaca;-04° 38';-79° 43';237;7;Ayabaca (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+21;2911;Chalhuanca;Apurimac;Chalhuanca;-14° 17';-73°14';669;4;Aymaraes;3000 - 4000;Mesoandino
+22;4172;Potoni;Puno;Potoni;-14° 23';-70° 06';783;5;Azángaro;4000 - 4800;Alto Andino
+23;483;Bagua;Amazonas;Bagua;-05° 38';-78° 31';253;9;Bagua;400 - 1000;Tropical Húmedo
+24;55;Barranca;Lima;Barranca;-10° 45';-77° 03';616;1;Barranca;0 - 2000;Desértico Costero
+25;247;Bellavista;San Martín;Bellavista;-07° 03';-76° 33';382;9;Bellavista;400 - 1000;Tropical Húmedo
+26;3098;Bolívar;La Libertad;Bolívar;-07° 09';-77° 42';374;4;Bolívar;3000 - 4000;Mesoandino
+27;3401;Chiquian;Ancash;Chiquian;-10° 09';-77° 09';554;5;Bolognesi;4000 - 4800;Alto Andino
+28;2046;Jumbilla;Amazonas;Jumbilla;-05° 54';-77° 47';375;7;Bongará;2000 - 3000;Ceja de Montaña
+29;3275;Cachachi;Cajamarca;Cachachi;-07° 26';-78° 16';359;4;Cajabamba (4 Mesoandino);3000 - 4000;Mesoandino
+30;3180;Encañada;Cajamarca;Encañada;-07° 02';-78° 38';359;4;Cajamarca (4 Mesoandino);3000 - 4000;Mesoandino
+31;2660;Cajamarca;Cajamarca;Cajamarca;-07° 10';-78° 29';304;7;Cajamarca (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+32;3382;Cajatambo;Lima;Cajatambo;-10° 28';-77° 03';633;4;Cajatambo;3000 - 4000;Mesoandino
+33;3171;Lares;Cusco;Lares;-13° 06';-72° 02';684;4;Calca;3000 - 4000;Mesoandino
+34;3;Callao;Callao;Callao;-12° 03';-77° 08';536;1;Callao;0 - 2000;Desértico Costero
+35;23;Camaná;Arequipa;Camaná;-16° 36';-72° 42';832;1;Camana;0 - 2000;Desértico Costero
+36;3980;Layo;Cusco;Layo;-14° 29';-71° 09';757;5;Canas;4000 - 4800;Alto Andino
+37;3574;Sicuani;Cusco;Sicuani;-14° 65';-71° 24';759;4;Canchis;3000 - 4000;Mesoandino
+38;3750;Candarave;Tacna;Candarave;-17° 16';-70° 16';876;6;Candarave;4800 - 5800;Nevado
+39;3342;Paras;Ayacucho;Paras;-13° 33';-74° 37';664;4;Cangallo;3000 - 4000;Mesoandino
+40;2832;Canta;Lima;Canta;-11° 28';-76° 37';547;3;Canta;2000 - 3000;Interandino Bajo
+41;27;San Vicente de Cañete;Lima;San Vicente de Cañete;-13° 05';-76° 23';616;1;Cañete;0 - 2000;Desértico Costero
+42;4321;Macusani;Puno;Macusani;-14° 04';-70° 25';783;5;Carabaya (5 Alto Andino);4000 - 4800;Alto Andino
+43;2774;Ollachea;Puno;Ollachea;-13° 47';-70° 28';883;7;Carabaya (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+44;1779;Caravelí;Arequipa;Caravelí;-15° 46';-73° 22';746;3;Caravelí;2000 - 3000;Interandino Bajo
+45;3014;Shilla;Ancash;Shilla;-09° 13';-77° 37';404;4;Carhuaz;3000 - 4000;Mesoandino
+46;3079;San Luis;Ancash;San Luis;-09° 06';-77° 19';404;4;Carlos Fermín Fitzcarrald (4 Mesoandino);3000 - 4000;Mesoandino
+47;3164;Yauya;Ancash;Yauya;-08° 59';-77° 17';444;6;Carlos Fermín Fitzcarrald (6 Nevado);4800 - 5800;Nevado
+48;35;Huanchuy;Ancash;Buena Vista Alta;-09° 28';-78° 19';435;1;Casma;0 - 2000;Desértico Costero
+49;2950;Pampacolca;Arequipa;Pampacolca;-15° 43';-72° 34';751;3;Castilla;2000 - 3000;Interandino Bajo
+50;3958;Castrovirreyna;Huancavelica;Castrovirreyna;-13° 16';-75° 19';648;4;Castrovirreyna;3000 - 4000;Mesoandino
+51;3633;Chivay;Arequipa;Chivay;-15° 38';-71° 36';758;5;Caylloma;4000 - 4800;Alto Andino
+52;3025;Chalan;Cajamarca;Miguel Iglesias;-06° 38';-78° 14';359;4;Celendín (4 Mesoandino);3000 - 4000;Mesoandino
+53;2450;Chachapoyas;Amazonas;Chachapoyas;-06° 13';-77° 52';375;7;Chachapoyas ;2000 - 3000;Ceja de Montaña
+54;833;La Merced;Junín;Chanchamayo;-11° 03';-75° 18';240;7;Chanchamayo (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+55;814;San Ramón;Junín;San Ramón;-11° 08';-75° 20';557;8;Chanchamayo (8 Subtropical Húmedo);400 - 2000;Subtropical Húmedo
+56;135;Chepén;La Libertad;Chepén;-07° 13';-79° 25';230;2;Chepén;400 - 2000;Desértico 
+57;21;Chiclayo;Lambayeque;Chiclayo;-06° 53';-79° 50';332;1;Chiclayo;0 - 2000;Desértico Costero
+58;94;Chincha Alta;Ica;Chincha Alta;-13° 25';-76° 08';791;1;Chincha;0 - 2000;Desértico Costero
+59;2795;Chincheros;Apurimac;Chincheros;-13° 31';-73° 43';677;7;Chincheros;2000 - 3000;Ceja de Montaña
+60;3012;Licupis;Cajamarca;San Juan de Licupis;-06° 25';-79° 14';359;4;Chota (4 Mesoandino);3000 - 4000;Mesoandino
+61;2080;Llama;Cajamarca;Llama;-06° 31';-79° 07';341;7;Chota (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+62;3940;Huacullani;Puno;Huacullani;-16° 54';-69° 22';881;5;Chucuito (5 Alto Andino);4000 - 4800;Alto Andino
+63;3860;Juli;Puno;Juli;-16° 34';-69° 2';883;7;Chucuito (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+64;3678;Santo Tomás;Cusco;Santo Tomás;-14° 27';-72° 05';757;5;Chumbivilcas;4000 - 4800;Alto Andino
+65;3262;Chupaca;Junín;Chupaca;-12° 04';-75° 17';635;4;Chupaca;3000 - 4000;Mesoandino
+66;3643;Churcampa;Huancavelica;Churcampa;-12° 44';-74° 26';658;4;Churcampa;3000 - 4000;Mesoandino
+67;3286;Concepción;Junín;Concepción;-11° 55';-75° 16';635;4;Concepción;3000 - 4000;Mesoandino
+68;2879;Chuquibamba;Arequipa;Chuquibamba;-15° 50';-72° 39';750;3;Condesuyos;2000 - 3000;Interandino Bajo
+69;3207;Salamanca;Arequipa;Salamanca;-15° 30';-72° 50';800;4;Condesuyos;3000 - 4000;Mesoandino
+70;1804;Santa María Nieva;Amazonas;Nieva;-06° 10';-77° 51';253;9;Condorcanqui;400 - 1000;Tropical Húmedo
+71;205;Cañaveral;Tumbes;Casitas;-03° 58';-80° 26';139;3;Contralmirante Villar;2000 - 3000;Interandino Bajo
+72;2647;Contumazá;Cajamarca;Contumazá;-07° 21';-78° 48';207;3;Contumazá (3 Interandino Bajo);2000 - 3000;Interandino Bajo
+73;195;Pucallpa;Ucayali;Calleria;-08° 22';74° 31';459;9;Coronel Portillo;400 - 1000;Tropical Húmedo
+74;3241;Cusca;Ancash;Cusca;-08° 30';-77° 51';404;4;Corongo (4 Mesoandino);3000 - 4000;Mesoandino
+75;2728;Yupan;Ancash;Yupan;-08° 36';-77° 57';538;7;Corongo (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+76;3766;Mara;Apurimac;Mara;-14° 05';-72° 06';669;4;Cotabambas (4 Mesoandino);3000 - 4000;Mesoandino
+77;3219;Cusco;Cusco;Cusco;-13° 56';-71° 87';607;4;Cusco;3000 - 4000;Mesoandino
+78;2600;Cutervo;Cajamarca;Cutervo;-06° 24';-78° 82';352;7;Cutervo;2000 - 3000;Ceja de Montaña
+79;4183;Goyllarisquizga;Pasco;Goyllarisquizga;-10° 28';-76° 24';749;6;Daniel Alcides Carrión;4800 - 5800;Nevado
+80;165;Alianza Cristiana;Loreto;Andoas;-03° 28';-76° 26';281;9;Datem del Marañón;400 - 1000;Tropical Húmedo
+81;3530;Marías;Huánuco;Marías;-09° 36';-76° 42';554;5;Dos de Mayo;4000 - 4800;Alto Andino
+82;4100;Capazo;Puno;Capazo;-17° 10';-69° 44';878;5;El Collao (5 Alto Andino);4000 - 4800;Alto Andino
+83;3850;Ilave;Puno;Ilave;-16° 05';-69° 39';879;7;El Collao (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+84;417;San Martín;San Martín;San Martín;-06° 30';-76° 44';383;9;El Dorado;400 - 1000;Tropical Húmedo
+85;3927;Yauri;Cusco;Espinar;-14° 49';-71° 25';757;5;Espinar;4000 - 4800;Alto Andino
+86;218;Ferreñafe;Lambayeque;Ferreñafe;-06° 39';-79° 25';335;1;Ferreñafe;0 - 2000;Desértico Costero
+87;3370;Ubinas;Moquegua;Ubinas;-16° 23';-70° 51';851;3;General Sánchez Cerro;2000 - 3000;Interandino Bajo
+88;1503;Marmot;La Libertad;Marmot;-07° 41';-78° 37';230;2;Gran Chimú (2 Desértico);400 - 2000;Desértico 
+89;3376;Chuquibambilla;Apurimac;Chuquibambilla;-14° 06';-72° 42';757;5;Grau;4000 - 4800;Alto Andino
+90;3191;Huacaybamba;Huánuco;Huacaybamba;-09° 02';-76° 57';552;4;Huacaybamba (4 Mesoandino);3000 - 4000;Mesoandino
+91;3716;Hualgayoc;Cajamarca;Hualgayoc;-06° 46';-78° 36';359;4;Hualgayoc (4 Mesoandino);3000 - 4000;Mesoandino
+92;412;Pasarraya;San Martín;Alto Saposoa;-06° 45';-76° 48';383;9;Huallaga;400 - 1000;Tropical Húmedo
+93;3436;Llata;Huánuco;Llata;-09° 33';-76° 48';404;4;Huamalíes;3000 - 4000;Mesoandino
+94;3394;Socos;Ayacucho;Socos;-13° 12';-74° 17';664;4;Huamanga;3000 - 4000;Mesoandino
+95;3427;Huanca Sancos;Ayacucho;Sancos;-13° 76';-74° 31';757;5;Huanca Sancos;4000 - 4800;Alto Andino
+96;2449;Sapalache;Piura;El Carmen De La Frontera;-05° 08';-79° 26';359;4;Huancabamba (4 Mesoandino);3000 - 4000;Mesoandino
+97;2307;Huancabamba ;Piura;Huancabamba ;-05° 14';-79° 27';208;8;Huancabamba (8 Subtropical Húmedo);400 - 2000;Subtropical Húmedo
+98;3880;Rosaspata;Puno;Rosaspata;-15° 12';-69° 45';786;4;Huancané (4 Mesoandino);3000 - 4000;Mesoandino
+99;3848;Huancane;Puno;Huancane;-15° 12';-69° 45';879;7;Huancané (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+100;3690;Huancavelica;Huancavelica;Huancavelica;-12° 47';-74° 58';648;4;Huancavelica;3000 - 4000;Mesoandino
+101;3245;Huancayo;Junín;Huancayo;-12° 04';-75° 13';635;4;Huancayo;3000 - 4000;Mesoandino
+102;3239;San Jose de Secce;Ayacucho;Santillana;-12° 45';-74° 15';664;4;Huanta (4 Mesoandino);3000 - 4000;Mesoandino
+103;2716;Huánuco;Huánuco;Huánuco;-09° 55';-76° 14';404;4;Huánuco;3000 - 4000;Mesoandino
+104;178;Huaral;Lima;Huaral;-12° 20';-77° 10';536;1;Huaral;0 - 2000;Desértico Costero
+105;3642;Pampas;Ancash;Pampas;-09° 39';-77° 49';554;5;Huaraz (5 Alto Andino);4000 - 4800;Alto Andino
+106;3150;Colcabamba;Ancash;Colcabamba;-09° 35';-77° 48';441;6;Huaraz (6 Nevado);4800 - 5800;Nevado
+107;3110;Huari;Ancash;Huari;-09° 20';-77° 10';404;4;Huari;3000 - 4000;Mesoandino
+108;12;Huarmey;Ancash;Huarmey;-10° 04';-78° 09';435;1;Huarmey;0 - 2000;Desértico Costero
+109;2386;Matucana;Lima;Matucana;-11° 51';-76° 23';633;4;Huarochiri;3000 - 4000;Mesoandino
+110;67;Ambar;Lima;Ambar;-11° 49';-77° 37';536;1;Huaura;0 - 2000;Desértico Costero
+111;2919;Santo Toribio;Ancash;Santo Toribio;-08° 52';-77° 54';404;4;Huaylas (4 Mesoandino);3000 - 4000;Mesoandino
+112;2278;Caraz;Ancash;Caraz;-09° 03';-77° 49';538;7;Huaylas (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+113;4475;Pilpichaca;Huancavelica;Pilpichaca;-13° 15';-75° 05';647;4;Huaytará;3000 - 4000;Mesoandino
+114;395;Tate;Ica;Tate;-14° 09';-75° 42';700;1;Ica;0 - 2000;Desértico Costero
+115;80;El Algarrobal;Moquegua;El Algarrobal;-17° 37';-71° 17';840;1;Ilo;0 - 2000;Desértico Costero
+116;13;Mollendo;Arequipa;Mollendo;-17° 02';-72° 01';800;1;Islay (1 Desértico Costero);0 - 2000;Desértico Costero
+117;721;ND;Arequipa;ND;-17° 02';-71°52';750;3;Islay (3 Interandino Bajo);2000 - 3000;Interandino Bajo
+118;1627;Chontali;Cajamarca;Chontali;-05° 39';-79° 05';250;7;Jaén;2000 - 3000;Ceja de Montaña
+119;3370;Jauja;Junín;Jauja;-11° 47';-75° 29';503;4;Jauja;3000 - 4000;Mesoandino
+120;596;Locumba;Tacna;Locumba;-17° 36';-70° 45';807;2;Jorge Basadre (2 Desértico);400 - 2000;Desértico 
+121;1384;Ilabaya;Tacna;Ilabaya;-17° 25';-70° 30';139;3;Jorge Basadre (3 Interandino Bajo);2000 - 3000;Interandino Bajo
+122;3412;Julcán;La Libertad;Julcán;-08° 02';-78° 29';374;4;Julcán;3000 - 4000;Mesoandino
+123;4113;Junín;Junín;Junín;-11° 09';-75° 59';554;5;Junín;4000 - 4800;Alto Andino
+124;2764;Lucma;Cusco;Vilcabamba;-13° 03';-72° 56';684;4;La Convención (4 Mesoandino);3000 - 4000;Mesoandino
+125;990;Quillabamba;Cusco;Santa Ana;-12° 42';-72° 42';606;8;La Convención (8 Subtropical Húmedo);400 - 2000;Subtropical Húmedo
+126;3319;Tambo;Ayacucho;Tambo;-12° 57';-74° 01';736;4;La Mar (4 Mesoandino);3000 - 4000;Mesoandino
+127;2683;Cotahuasi;Arequipa;Cotahuasi;-15° 12';-72° 53';749;6;La Unión;4800 - 5800;Nevado
+128;790;Lamas;San Martín;Lamas;-06° 25';-76° 31';383;9;Lamas;400 - 1000;Tropical Húmedo
+129;18;Lambayeque;Lambayeque;Lambayeque;-06° 42';-79° 55';301;1;Lambayeque (1 Desértico Costero);0 - 2000;Desértico Costero
+130;200;Chochope;Lambayeque;Chochope;-06° 09';-79° 38';208;8;Lambayeque (8 Subtropical Húmedo);400 - 2000;Subtropical Húmedo
+131;4371;Paratia;Puno;Paratia;-15° 27';-70° 36';779;5;Lampa;4000 - 4800;Alto Andino
+132;3831;Queropalca;Huánuco;Queropalca;-10° 10';-76° 48';554;5;Lauricocha;4000 - 4800;Alto Andino
+133;800;Tingo María;Huánuco;Rupa-Rupa;-09° 15';-75° 54';469;8;Leoncio Prado;400 - 2000;Subtropical Húmedo
+134;107;San Miguel;Lima;San Miguel;-12° 05';-77° 05';536;1;Lima;0 - 2000;Desértico Costero
+135;98;Nauta;Loreto;Nauta;-04° 27';-73° 31';278;9;Loreto;400 - 1000;Tropical Húmedo
+136;3219;Puquio;Ayacucho;Puquio;-14° 42';-74° 08';736;4;Lucanas (4 Mesoandino);3000 - 4000;Mesoandino
+137;3555;San Cristobal;Ayacucho;San Cristobal;-14° 44';-74° 13';749;6;Lucanas (6 Nevado);4800 - 5800;Nevado
+138;2471;Luya Viejo;Amazonas;Luya Viejo;-06° 12';-77° 57';375;7;Luya;2000 - 3000;Ceja de Montaña
+139;527;Salvacion;Madre de Dios;Manu;-12° 50';-71° 21';240;7;Manu;2000 - 3000;Ceja de Montaña
+140;2919;Panao;Huánuco;Panao;-08° 39';-76° 50';207;3;Marañón (3 Interandino Bajo);2000 - 3000;Interandino Bajo
+141;1940;Huacrachuco;Huánuco;Huacrachuco;-08° 36';-77° 08';377;7;Marañón (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+142;282;Juanjui;San Martín;Juanjui;-07° 10';-76° 43';359;4;Mariscal Cáceres (4 Mesoandino);3000 - 4000;Mesoandino
+143;315;Campanilla;San Martín;Campanilla;-07° 28';-76° 39';382;9;Mariscal Cáceres (9 Tropical Húmedo);400 - 1000;Tropical Húmedo
+144;3028;Musga;Ancash;Musga;-08° 54';-77° 20';404;4;Mariscal Luzuriaga (4 Mesoandino);3000 - 4000;Mesoandino
+145;3053;Lucma;Ancash;Lucma;-08° 55';-77° 24';444;6;Mariscal Luzuriaga (6 Nevado);4800 - 5800;Nevado
+146;1420;Moquegua;Moquegua;Moquegua;-17° 12';-70° 58';806;3;Mariscal Nieto;2000 - 3000;Interandino Bajo
+147;107;Caballococha;Loreto;Ramón Castilla;-03° 55';-70° 31';291;9;Mariscal Ramón Castilla;400 - 1000;Tropical Húmedo
+148;126;Iquitos;Loreto;Huarochiri;-03° 45';-73° 16';140100;9;Maynas;400 - 1000;Tropical Húmedo
+149;4190;Llalli;Puno;Llalli;-14° 56';-70° 53';761;5;Melgar;4000 - 4800;Alto Andino
+150;3890;Moho;Puno;Moho;-15° 23';-69° 29';787;5;Moho;4000 - 4800;Alto Andino
+151;2230;Chalaco;Piura;Chalaco;-05° 02';-79° 47';235;3;Morropón (3 Interandino Bajo);2000 - 3000;Interandino Bajo
+152;1480;Santo Domingo;Piura;Santo Domingo;-05° 01';-79° 52';208;8;Morropón (8  Subtropical Húmedo);400 - 2000;Subtropical Húmedo
+153;860;Moyobamba;San Martín;Moyobamba;-06° 00';-76° 58';378;9;Moyobamba;400 - 1000;Tropical Húmedo
+154;565;Vista Alegre;Ica;Vista Alegre;-14° 50';-74° 56';547;3;Nazca;2000 - 3000;Interandino Bajo
+155;3311;Ocros;Ancash;Ocros;-10° 24';-77° 23';404;4;Ocros;3000 - 4000;Mesoandino
+156;3433;Salpo;La Libertad;Salpo;-08° 00';-78° 36';374;4;Otuzco;3000 - 4000;Mesoandino
+157;1825;Oxapampa;Pasco;Oxapampa;-10° 35';-75° 24';557;8;Oxapampa;400 - 2000;Subtropical Húmedo
+158;3615;Oy ón;Lima;Oy ón;-10° 26';-76° 50';593;5;Oyón (5 Alto Andino);4000 - 4800;Alto Andino
+159;17;Pacasmayo;La Libertad;Pacasmayo;-07° 24';-79° 34';325;1;Pacasmayo;0 - 2000;Desértico Costero
+160;2424;Umari;Huánuco;Umari;-09° 51';-76° 02';404;4;Pachitea;3000 - 4000;Mesoandino
+161;180;Curimana;Ucayali;Curimana;-08° 29';-75° 05';459;9;Padre Abad;400 - 1000;Tropical Húmedo
+162;30;Paita;Piura;Paita;-05° 05';-81° 06';230;2;Paita;400 - 2000;Desértico 
+163;3043;Pallasca;Ancash;Pallasca;-08° 14';-77° 59';404;4;Pallasca;3000 - 4000;Mesoandino
+164;357;Rio Grande;Ica;Rio Grande;-14° 31';-75° 12';791;1;Palpa;0 - 2000;Desértico Costero
+165;3178;Coracora;Ayacucho;Coracora;-15° 00';-73° 46';745;4;Parinacochas (4 Mesoandino);3000 - 4000;Mesoandino
+166;3084;Paruro;Cusco;Paruro;-13° 46';-71° 51';686;4;Paruro;3000 - 4000;Mesoandino
+167;4342;Cerro de Pasco;Pasco;Chaupimarca;-10° 40';-76° 15';593;5;Pasco;4000 - 4800;Alto Andino
+168;3226;Challas;La Libertad;Santiago de Challas;-08° 26';-77° 19';374;4;Pataz;3000 - 4000;Mesoandino
+169;2560;Pausa;Ayacucho;Pausa;-15° 17';-73° 21';745;4;Paucar del Sara Sara;3000 - 4000;Mesoandino
+170;2911;Paucartambo;Cusco;Paucartambo;-13° 19';-71° 35';689;4;Paucartambo;3000 - 4000;Mesoandino
+171;221;Picota;San Martín;Picota;-06° 55';-76° 19';378;9;Picota;400 - 1000;Tropical Húmedo
+172;6;San Andres;Ica;San Andres;-13° 43';-76° 13';140600;1;Pisco;0 - 2000;Desértico Costero
+173;2410;ND;Piura;ND;-16° 04';-71° 05';207;3;Piura;2000 - 3000;Interandino Bajo
+174;3251;Parobamba;Ancash;Pomabamba;-08° 41';-77° 25';554;5;Pomabamba (5 Alto Andino);4000 - 4800;Alto Andino
+175;3057;Pomabamba;Ancash;Pomabamba;-08° 48';-77° 27';444;6;Pomabamba (6 Nevado);4800 - 5800;Nevado
+176;160;Tournavista;Huánuco;Tournavista;-08° 56';-74° 43';480;8;Puerto Inca;400 - 2000;Subtropical Húmedo
+177;3840;Puno;Puno;Puno;-15° 49';-70° 01';708;4;Puno (4 Mesoandino);3000 - 4000;Mesoandino
+178;4329;San Antonio de Esquilache;Puno;San Antonio;-16° 08';-70° 20';787;5;Puno (5 Alto Andino);4000 - 4800;Alto Andino
+179;232;Esperanza;Ucayali;Purús;-09° 46';-70° 42';459;9;Purús;400 - 1000;Tropical Húmedo
+180;3729;Ccatca;Cusco;Ccatca;-13° 37';-71° 34';690;4;Quispicanchi;3000 - 4000;Mesoandino
+181;3398;Recuay;Ancash;Recuay;-09° 43';-77° 27';554;5;Recuay;4000 - 4800;Alto Andino
+182;126;Jenaro Herrera;Loreto;Jenaro Herrera;-04° 54';-73° 39';281;9;Requena;400 - 1000;Tropical Húmedo
+183;869;Nuev a Cajamarca;San Martín;Nuev a Cajamarca;-05° 56';-77° 18';359;4;Rioja (4 Mesoandino);3000 - 4000;Mesoandino
+184;880;Rioja;San Martín;Rioja;-06° 03';-77° 10';377;7;Rioja (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+185;2373;Mariscal Benavides;Amazonas;Mariscal Benavides;-06° 22';-77° 25';375;7;Rodríguez de Mendoza;2000 - 3000;Ceja de Montaña
+186;3229;Sina;Puno;Sina;-14° 29';-69° 16';790;8;San Antonio de Putina;400 - 2000;Subtropical Húmedo
+187;1790;Tabaconas;Cajamarca;Tabaconas;-05° 00';-79° 05';240;7;San Ignacio;2000 - 3000;Ceja de Montaña
+188;2989;Venecia;Cajamarca;Jose Sabogal;-07° 17';-78° 01';359;4;San Marcos (4 Mesoandino);3000 - 4000;Mesoandino
+189;130;Navarro;San Martín;Chipurana;-06° 21';-75° 46';386;9;San Martín;400 - 1000;Tropical Húmedo
+190;2613;San Miguel de Pallaques;Cajamarca;San Miguel;-06° 59';-78° 51';207;3;San Miguel (3 Interandino Bajo);2000 - 3000;Interandino Bajo
+191;2798;Llapa;Cajamarca;Llapa;-06° 59';-78° 41';388;4;San Miguel (4 Mesoandino);3000 - 4000;Mesoandino
+192;2640;San Pablo;Cajamarca;San Pablo;-07° 07';-78° 49';388;4;San Pablo (4 Mesoandino);3000 - 4000;Mesoandino
+193;3890;Deustua;Puno;Cabanillas;-15° 38';-70° 21';780;5;San Román;4000 - 4800;Alto Andino
+194;3200;Huamachuco;La Libertad;Huamachuco;-07° 49';-78° 03';374;4;Sánchez Carrión;3000 - 4000;Mesoandino
+195;3542;Cuyocuyo;Puno;Cuyocuyo;-14° 28';-69° 32';786;4;Sandia (4 Mesoandino);3000 - 4000;Mesoandino
+196;1340;San Juan Del Oro;Puno;San Juan Del Oro;-14° 14';-69° 10';790;8;Sandia (8 Subtropical Húmedo);400 - 2000;Subtropical Húmedo
+197;11;Santa;Ancash;Santa;-08° 59';-78° 37';140399;1;Santa;0 - 2000;Desértico Costero
+198;1640;La Esperanza;Cajamarca;La Esperanza;-06° 35';-78° 52';395;7;Santa Cruz;2000 - 3000;Ceja de Montaña
+199;3089;Mollebamba;La Libertad;Mollebamba;-08° 10';-77° 58';374;4;Santiago de Chuco;3000 - 4000;Mesoandino
+200;637;Satipo;Junín;Satipo;-11° 15';-74° 38';557;8;Satipo;400 - 2000;Subtropical Húmedo
+201;2661;Sojo;Piura;Miguel Checa;-13° 01';-73° 59';247;2;Sechura;400 - 2000;Desértico 
+202;2784;Siguas;Ancash;Siguas;-08° 33'; -77° 38';250;7;Siguas;2000 - 3000;Ceja de Montaña
+203;3508;Querobamba;Ayacucho;Querobamba;-14° 00';-73° 50';757;5;Sucre;4000 - 4800;Alto Andino
+204;45;ND;Piura;ND;-04° 54;-80° 44';208;8;Sullana;400 - 2000;Subtropical Húmedo
+205;900;Calana;Tacna;Calana;-17° 56';-70° 12';807;2;Tacna (2 Desértico);400 - 2000;Desértico 
+206;3021;Palca;Tacna;Palca;-17° 46';-69° 57';800;4;Tacna (4 Mesoandino);3000 - 4000;Mesoandino
+207;2944;ND;Tacna;ND;-18° 02';-70° 25';758;5;Tacna (5 Alto Andino);4000 - 4800;Alto Andino
+208;275;Iñapari;Madre de Dios;Iñapari;-10° 57';-69° 36';590;8;Tahuamanu;400 - 2000;Subtropical Húmedo
+209;23;Talara;Piura;Talara;-04° 35';-81° 16';140200;1;Talara;0 - 2000;Desértico Costero
+210;314;Puerto Maldonado;Madre de Dios;Tambopata;-12° 37';-69° 13';140604;8;Tambopata;400 - 2000;Subtropical Húmedo
+211;3050;Tarata;Tacna;Tarata;-17° 29';-70° 02';877;6;Tarata;4800 - 5800;Nevado
+212;4024;San Pedro de Cajas;Junín;San Pedro de Cajas;-11° 15';-75° 41';554;5;Tarma;4000 - 4800;Alto Andino
+213;3240;Pampas;Huancavelica;Pampas;-12° 24';-74° 52';508;4;Tayacaja (4 Mesoandino);3000 - 4000;Mesoandino
+214;2581;Surcubamba;Huancavelica;Surcubamba;-12° 07';-74° 37';240;7;Tayacaja (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+215;502;Tocache;San Martín;Tocache;-08° 11';-76° 30';378;9;Tocache (9 Tropical Húmedo);400 - 1000;Tropical Húmedo
+216;38;Trujillo;La Libertad;Trujillo;-08° 06';-79° 01';326;1;Trujillo;0 - 2000;Desértico Costero
+217;1;Tumbes;Tumbes;Tumbes;-03° 30';-80° 28';132;3;Tumbes (3 Interandino Bajo);2000 - 3000;Interandino Bajo
+218;98;Pampas de Hospital;Tumbes;Pampas de Hospital;-03° 48';-80° 27';130;8;Tumbes (8 Subtropical Húmedo);400 - 2000;Subtropical Húmedo
+219;188;Pampa Hermosa;Loreto;Pampa Hermosa;-07° 11';-75° 20';387;9;Ucayali;400 - 1000;Tropical Húmedo
+220;2863;Urubamba;Cusco;Urubamba;-13° 19';-72° 7';683;4;Urubamba;3000 - 4000;Mesoandino
+221;1620;Jamalca;Amazonas;Jamalca;-05° 54';-78° 13';375;7;Utcubamba (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+222;446;Bagua Grande;Amazonas;Bagua Grande;-05° 45';-78° 26';253;9;Utcubamba (9 Tropical Humedo);400 - 1000;Tropical Húmedo
+223;3102;Huancapi;Ayacucho;Huancapi;-13° 45';-74° 04';757;5;Víctor Fajardo;4000 - 4800;Alto Andino
+224;3482;Vilcas Huaman;Ayacucho;Vilcas Huaman;-13° 39';-73° 57';745;4;Vilcashuamán (4 Mesoandino);3000 - 4000;Mesoandino
+225;63;ciudad;La Libertad;Sayapullo;-08° 55';-78° 73';230;2;Virú;400 - 2000;Desértico 
+226;3761;San Cristobal de Jacas Chico;Huánuco;Jacas Chico;-09° 53';-76° 30';552;4;Yarowilca (4 Mesoandino);3000 - 4000;Mesoandino
+227;3725;San Pedro de Cajas;Junin;San Pedro de Cajas;-11° 32';-75° 54';759;4;Yauli;3000 - 4000;Mesoandino
+228;2327;Yauyos;Lima;Yauyos;-12° 30';-75° 55';636;4;Yauyos;3000 - 4000;Mesoandino
+229;3358;Yanama;Ancash;Yanama;-09° 01';-77° 28';404;4;Yungay;3000 - 4000;Mesoandino
+230;3842;Unicachi;Puno;Unicachi;-16° 24';-69° 09';786;4;Yunguyo (4 Mesoandino);3000 - 4000;Mesoandino
+231;3860;Anapia;Puno;Anapia;-16° 18';-69° 04';882;7;Yunguyo (7 Ceja de Montaña);2000 - 3000;Ceja de Montaña
+232;3;Aguas Verdes;Tumbes;Aguas Verdes;-03° 26';-80° 19';135;8;Zarumilla;400 - 2000;Subtropical Húmedo
