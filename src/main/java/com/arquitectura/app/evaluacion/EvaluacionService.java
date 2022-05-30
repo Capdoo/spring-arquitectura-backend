@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.arquitectura.app.dto.LuminicoDTO;
 import com.arquitectura.app.dto.SolarDTO;
 import com.arquitectura.app.dto.TermicoDTO;
-import com.arquitectura.app.modules.condensadores.CondDTO;
+import com.arquitectura.app.dto.CondDTO;
 import com.arquitectura.app.modules.condensadores.CondService;
 import com.arquitectura.app.modules.solar.SolarService;
 import com.arquitectura.app.modules.termico.TermicoService;
@@ -44,6 +44,11 @@ public class EvaluacionService {
 		condensadoresEvaluacion = condService.ObtenerDatosExcel(fileUrl, fileName);
 		return condensadoresEvaluacion;
 	}
+	public CondDTO evaluarCondensadores(String fileUrl, String fileName, String provincia) throws MalformedURLException, IOException {
+		CondDTO condensadoresEvaluacion = new CondDTO();
+		condensadoresEvaluacion = condService.ObtenerDatosExcel(fileUrl, fileName, provincia);
+		return condensadoresEvaluacion;
+	} //Cuando se pase el nombre de la provincia
 	
 	//Evaluacion Luminico
 	public LuminicoDTO evaluarLuminico(String fileName) {
@@ -58,7 +63,11 @@ public class EvaluacionService {
 		solarEvaluacion = solarService.ObtenerDatosExcel(fileUrl, fileName);
 		return solarEvaluacion;
 	}
-	
+	public SolarDTO evaluarSolar(String fileUrl, String fileName, String provincia) throws MalformedURLException, IOException {
+		SolarDTO solarEvaluacion = new SolarDTO();
+		solarEvaluacion = solarService.ObtenerDatosExcel(fileUrl, fileName, provincia);
+		return solarEvaluacion;
+	} //Cuando se pase el nombre de la provincia
 	
 
 }

@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.arquitectura.app.dto.CondDTO;
 import com.arquitectura.app.excel.FormExcelGetData;
 import com.arquitectura.app.excel.FormExcelImporter;
+import com.arquitectura.app.modules.ubicaciones.UbicacionesService;
 
 @Service
 public class CondService {
@@ -19,6 +21,9 @@ public class CondService {
 	
 	@Autowired
 	EdificacionTiRepository edTiRepository;
+	
+	@Autowired
+	UbicacionesService ubiService;
 	
 	@Autowired
 	FormExcelGetData formExcelGetData;
@@ -48,6 +53,17 @@ public class CondService {
 		FormExcelGetData excelGetData = new FormExcelGetData(worbookObtenido);
 		excelGetData.setNroHoja(2);
 		int zona = (int)excelGetData.getDataDecimalFromColumnAndRow("D", "6");
+		String tipo_ed = excelGetData.getDataStringColumnAndRow("D", "7");
+		
+		return new CondDTO(obtenerTsiMuro(zona, tipo_ed), obtenerTsiTecho(zona, tipo_ed), obtenerTsiPiso(zona, tipo_ed), obtenerHR(zona));
+	}
+	
+	public CondDTO ObtenerDatosExcel(String FILE_URL, String FILE_NAME, String provincia) throws IOException {
+		Workbook worbookObtenido = formExcelImporter.obtenerWorkbookDeFileUrl(FILE_URL, FILE_NAME);
+		FormExcelGetData excelGetData = new FormExcelGetData(worbookObtenido);
+		excelGetData.setNroHoja(2);
+		int idUbi = ubiService.obtenerIdPorProvincia(provincia);
+		int zona = ubiService.obtenerNumeroZona(idUbi);
 		String tipo_ed = excelGetData.getDataStringColumnAndRow("D", "7");
 		
 		return new CondDTO(obtenerTsiMuro(zona, tipo_ed), obtenerTsiTecho(zona, tipo_ed), obtenerTsiPiso(zona, tipo_ed), obtenerHR(zona));
