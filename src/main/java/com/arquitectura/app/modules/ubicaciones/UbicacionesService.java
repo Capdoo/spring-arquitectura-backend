@@ -7,7 +7,7 @@ public class UbicacionesService {
 	UbicacionesRepository ubiRepository;
 	
 	public int obtenerIdPorProvincia(String provincia) {
-		UbicacionesModel ubi = ubiRepository.findByProvicia(provincia);
+		UbicacionesModel ubi = ubiRepository.findByProvincia(provincia);
 		return ubi.getId();
 	}
 	

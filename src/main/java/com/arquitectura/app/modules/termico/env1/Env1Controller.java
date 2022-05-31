@@ -21,7 +21,7 @@ import com.arquitectura.app.dto.TermicoDTO;
 public class Env1Controller {
 
 	@Autowired
-	Env1Service env1Service;
+	Env1ServiceToBD env1Service;
 	
 	@Autowired
 	Env1ServiceGlobal env1ServiceGlobal;

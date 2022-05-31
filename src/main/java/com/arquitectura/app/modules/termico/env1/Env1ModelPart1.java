@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="env1part1")
-public class Env1Model {
+public class Env1ModelPart1 {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,11 +27,11 @@ public class Env1Model {
 	@Column(name="transmitancia")
 	private String transmitancia;
 	
-	public Env1Model() {
+	public Env1ModelPart1() {
 		super();
 	}
 
-	public Env1Model(long id, String tipo, String subtipo, String nombre, String transmitancia) {
+	public Env1ModelPart1(long id, String tipo, String subtipo, String nombre, String transmitancia) {
 		super();
 		this.id = id;
 		this.tipo = tipo;

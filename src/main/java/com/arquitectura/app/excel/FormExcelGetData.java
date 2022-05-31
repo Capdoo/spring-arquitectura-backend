@@ -59,6 +59,7 @@ public class FormExcelGetData {
 		try {
 
 			Cell c = this.workbook.getSheetAt(this.nroHoja-1).getRow(filaUsable).getCell(columnaUsable);
+
 			target = c.getStringCellValue();
 
 		} catch (Exception e) {
