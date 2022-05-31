@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.arquitectura.app.dto.SolarDTO;
 import com.arquitectura.app.excel.FormExcelGetData;
 import com.arquitectura.app.excel.FormExcelImporter;
+import com.arquitectura.app.modules.ubicaciones.UbicacionesService;
 
 @Service
 public class SolarService {
@@ -24,6 +25,10 @@ public class SolarService {
 	@Autowired
 	FormExcelImporter formExcelImporter;
 
+	@Autowired
+	UbicacionesService ubiService;
+	
+	
 	@Value("${file.upload-dir}")
 	String FILE_DIRECTORY;
 	
@@ -49,6 +54,14 @@ public class SolarService {
 		
 		
 		return new SolarDTO("Falta tabla provincia",orientacion,buscarAngulo((int)num, orientacion));
+	}
+	public SolarDTO ObtenerDatosExcel(String FILE_URL, String FILE_NAME, String provincia) throws IOException {
+		Workbook worbookObtenido = formExcelImporter.obtenerWorkbookDeFileUrl(FILE_URL, FILE_NAME);
+		FormExcelGetData excelGetData = new FormExcelGetData(worbookObtenido);
+		excelGetData.setNroHoja(4);
+		String orientacion = excelGetData.getDataStringColumnAndRow("C", "6");
+		int idUbi = ubiService.obtenerIdPorProvincia(provincia);
+		return new SolarDTO("Falta tabla provincia",orientacion,buscarAngulo(idUbi, orientacion));
 	}
 	
 	public int buscarAngulo(int id, String orientacion) {

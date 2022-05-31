@@ -3,7 +3,7 @@ package com.arquitectura.app.evaluacion;
 import com.arquitectura.app.dto.LuminicoDTO;
 import com.arquitectura.app.dto.SolarDTO;
 import com.arquitectura.app.dto.TermicoDTO;
-import com.arquitectura.app.modules.condensadores.CondDTO;
+import com.arquitectura.app.dto.CondDTO;
 
 public class EvaluacionDTO {
 
