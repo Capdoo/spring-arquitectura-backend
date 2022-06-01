@@ -45,14 +45,16 @@ public class Env1ServicePart2 {
 		double[] muroSinCamaraAire1 = this.muroSinCamaraAire1(excelGetData);
 		double[] muroSinCamaraAire2 = this.muroSinCamaraAire2(excelGetData);
 		double[] muroConCamaraAire1 = this.muroConCamaraAire1(excelGetData);
+		double[] muroConCamaraAire2 = this.muroConCamaraAire2(excelGetData);
 
 		
 		double U1 = Math.round(muroSinCamaraAire1[0]/muroSinCamaraAire1[1]*1000.0)/1000.0;
 		double U2 = Math.round(muroSinCamaraAire2[0]/muroSinCamaraAire2[1]*1000.0)/1000.0;
 		double U3 = Math.round(muroConCamaraAire1[0]/muroConCamaraAire1[1]*1000.0)/1000.0;
+		double U4 = Math.round(muroConCamaraAire2[0]/muroConCamaraAire2[1]*1000.0)/1000.0;
 
 		
-		return U1+U2+U3;
+		return U1+U2+U3+U4;
 	}
 	
 	
@@ -125,15 +127,18 @@ public class Env1ServicePart2 {
 	public double formulaUTransmitanciaBloque1(double rse, double rsi, double rst) {
 
 		double U = 1/((this.ESP1/this.COEF1) + (this.ESP2/this.COEF2) + (this.ESP3/this.COEF3) + rse + rsi + rst);
-		U = Math.round(U*1000.0)/1000.0;
+		U = Math.round(U*100000.0)/100000.0;
 
 		return U;
 	}
 	
 	public double[] muroConCamaraAire1(FormExcelGetData ex) {
 		
-		double rst = env1Service.getResistCamByName(ex.getDataStringColumnAndRow("B","65"));
-			
+		double rst = env1Service.getResistCamByName(ex.getDataStringColumnAndRow("B","53"));
+		logger.info(ex.getDataStringColumnAndRow("B","53")+" : Este es name");
+	
+		
+		
 		double rse = 0.11;
 		double rsi = 0.06;
 		
@@ -155,6 +160,40 @@ public class Env1ServicePart2 {
 
 		double U = this.formulaUTransmitanciaBloque1(rse,rsi,rst);
 		logger.info(U+" : Esta es U3");
+
+		
+		res[0] = this.AR1*U;
+		res[1] = this.AR1;
+				
+		return res;
+		
+	}
+	
+	public double[] muroConCamaraAire2(FormExcelGetData ex) {
+		
+		double rst = env1Service.getResistCamByName(ex.getDataStringColumnAndRow("B","65"));
+			
+		double rse = 0.11;
+		double rsi = 0.06;
+		
+		double[] res = new double[2];
+		
+		this.EL1 = ex.getDataStringColumnAndRow("B","69");
+		this.EL2 = ex.getDataStringColumnAndRow("B","70");	
+		this.EL3 = ex.getDataStringColumnAndRow("B","71");	
+
+		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C","69");
+		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C","70");
+		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C","71");
+
+		this.AR1 = ex.getDataDecimalFromColumnAndRow("D","69");
+
+		this.COEF1 = env1Service.getCoefTransByName(this.EL1);
+		this.COEF2 = env1Service.getCoefTransByName(this.EL2);
+		this.COEF3 = env1Service.getCoefTransByName(this.EL3);
+
+		double U = this.formulaUTransmitanciaBloque1(rse,rsi,rst);
+		logger.info(U+" : Esta es U4");
 
 		
 		res[0] = this.AR1*U;
