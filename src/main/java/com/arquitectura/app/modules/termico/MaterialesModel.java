@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="materiales")
-public class Materiales {
+public class MaterialesModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +21,11 @@ public class Materiales {
 	@Column(name="coeficiente")
 	private String coeficienteTransmision;
 
-	public Materiales() {
+	public MaterialesModel() {
 		super();
 	}
 
-	public Materiales(long id, String nombreMaterial, String coeficienteTransmision) {
+	public MaterialesModel(long id, String nombreMaterial, String coeficienteTransmision) {
 		super();
 		this.id = id;
 		this.nombreMaterial = nombreMaterial;

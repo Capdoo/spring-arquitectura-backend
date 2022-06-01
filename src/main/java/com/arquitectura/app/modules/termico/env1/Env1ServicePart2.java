@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.arquitectura.app.excel.FormExcelGetData;
-import com.arquitectura.app.modules.termico.Materiales;
+import com.arquitectura.app.modules.termico.MaterialesModel;
 import com.arquitectura.app.modules.termico.MaterialesRepository;
 
 @Service
@@ -39,27 +39,17 @@ public class Env1ServicePart2 {
 	
 	public double executeEnv1Parte2(Workbook workbook) {
 		
-		
-		//double[] res;
-		// res[0] = SxU
-		// res[1] = S
-		
 		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
 			excelGetData.setNroHoja(1);
 			
 		double[] muroSinCamaraAire1 = this.muroSinCamaraAire1(excelGetData);
+		double[] muroSinCamaraAire2 = this.muroSinCamaraAire2(excelGetData);
 		
-		logger.info(muroSinCamaraAire1[0]+": Este es SXU");
-		logger.info(muroSinCamaraAire1[1]+": Este es S");
+		double U1 = Math.round(muroSinCamaraAire1[0]/muroSinCamaraAire1[1]*100.0)/100.0;
+		double U2 = Math.round(muroSinCamaraAire2[0]/muroSinCamaraAire2[1]*100.0)/100.0;
 
 		
-		
-		logger.info(muroSinCamaraAire1[0]/muroSinCamaraAire1[1]+"Este es U");
-		
-		double U = Math.round(muroSinCamaraAire1[0]/muroSinCamaraAire1[1]*100.0)/100.0;
-		
-		
-		return U;
+		return U1+U2;
 	}
 	
 	
@@ -98,6 +88,36 @@ public class Env1ServicePart2 {
 		logger.info(U+" : Esta es U");
 
 		
+		
+		res[0] = this.AR1*U;
+		res[1] = this.AR1;
+				
+		return res;
+	}
+	
+	public double[] muroSinCamaraAire2(FormExcelGetData ex) {
+		
+		double rse = 0.11;
+		double rsi = 0.06;
+		
+		double[] res = new double[2];
+		
+		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C","45");
+		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C","46");
+		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C","47");
+		
+		this.EL1 = ex.getDataStringColumnAndRow("B","45");
+		this.EL2 = ex.getDataStringColumnAndRow("B","46");	
+		this.EL3 = ex.getDataStringColumnAndRow("B","47");	
+		
+		this.AR1 = ex.getDataDecimalFromColumnAndRow("D","45");
+		
+		this.COEF1 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL1).get().getCoeficienteTransmision());
+		this.COEF2 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL2).get().getCoeficienteTransmision());
+		this.COEF3 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL3).get().getCoeficienteTransmision());
+
+		double U = this.formulaUTransmitanciaBloque1(rse,rsi);
+
 		
 		res[0] = this.AR1*U;
 		res[1] = this.AR1;
