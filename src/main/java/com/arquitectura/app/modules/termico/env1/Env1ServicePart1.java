@@ -15,28 +15,9 @@ public class Env1ServicePart1 {
 	@Autowired
 	Env1ServiceToBD env1Service;
 	
-	//Referencias Subtitulos
-	@Value("${EV1_TIPO_1}")
-	String EV1_TIPO_1;
-	
-	@Value("${EV1_TIPO_2}")
-	String EV1_TIPO_2;
-	
-	@Value("${EV1_SUBTIPO_1}")
-	String EV1_SUBTIPO_1;
-	
-	@Value("${EV1_SUBTIPO_2}")
-	String EV1_SUBTIPO_2;
-	
-	@Value("${EV1_SUBTIPO_3}")
-	String EV1_SUBTIPO_3;
-	
 	@Value("${file.upload-dir}")
 	String FILE_DIRECTORY;
 
-	
-	@Autowired
-	VidriosRepository vidriosRepository;
 
 	public double executeEnv1Parte1(Workbook workbook) {
 
@@ -64,26 +45,18 @@ public class Env1ServicePart1 {
 			//1.1 Elemento 1
 			elementoNombre1 = excelGetData.getDataStringColumnAndRow("B","8");	//Viene de excel
 			elementoArea1 = excelGetData.getDataDecimalFromColumnAndRow("D","8");	//Viene de excel
-			//transElemento1 = env1Service.obtenerTransmitanciaPorTipoSubtipoYNombre(EV1_TIPO_1, 
-			//																	   EV1_SUBTIPO_1, 
-			//																	   elementoNombre1);
-			
-			
-			transElemento1 = env1Service.getTransmitanciaByName(elementoNombre1);
+			transElemento1 = env1Service.getTransByName(elementoNombre1);
 			
 			sumSU += elementoArea1*transElemento1; //SxU
 			sumS += elementoArea1;
-																			
+								
+			
+			
 			//1.2 Elemento 2
 			elementoNombre2 = excelGetData.getDataStringColumnAndRow("B","9");
 			elementoArea2 = excelGetData.getDataDecimalFromColumnAndRow("D","9");
-			transElemento2 = env1Service.obtenerTransmitanciaPorTipoSubtipoYNombre(EV1_TIPO_1, 
-																				   EV1_SUBTIPO_1, 
-																				   elementoNombre2);
-			
-			transElemento2 = 
-					Double.parseDouble(vidriosRepository.findByNombreVidrio(elementoNombre2).get().getTransmitanciaVidrio());
-			
+			transElemento2 = env1Service.getTransByName(elementoNombre2);
+
 			sumSU += elementoArea2*transElemento2; //SxU
 			sumS += elementoArea2;
 
@@ -92,10 +65,7 @@ public class Env1ServicePart1 {
 			//2.1 Elemento 1
 			elementoNombre1 = excelGetData.getDataStringColumnAndRow("B","13");
 			elementoArea1 = excelGetData.getDataDecimalFromColumnAndRow("E","13");
-			transElemento1 = env1Service.obtenerTransmitanciaPorTipoSubtipoYNombre(EV1_TIPO_1, 
-																				   EV1_SUBTIPO_2, 
-																				   elementoNombre1);
-			//transElemento1 = vidriosRepository.findByNombre(elementoNombre1).get().getTransmitancia();
+			transElemento1 = env1Service.getTransByName(elementoNombre1);
 
 			sumSU += elementoArea1*transElemento1; //SxU
 			sumS += elementoArea1;
@@ -103,20 +73,18 @@ public class Env1ServicePart1 {
 			//2.2 Elemento 2
 			elementoNombre2 = excelGetData.getDataStringColumnAndRow("B","14");
 			elementoArea2 = excelGetData.getDataDecimalFromColumnAndRow("E","14");
-			transElemento2 = env1Service.obtenerTransmitanciaPorTipoSubtipoYNombre(EV1_TIPO_1, 
-																				   EV1_SUBTIPO_2, 
-																				   elementoNombre2);
-			//transElemento2 = vidriosRepository.findByNombre(elementoNombre2).get().getTransmitancia();
+			transElemento2 = env1Service.getTransByName(elementoNombre2);
+			
 			sumSU += elementoArea2*transElemento2; //SxU
 			sumS += elementoArea2;
 
+			
+			
 			elementoNombre3 = excelGetData.getDataStringColumnAndRow("B","15");
 			elementoArea3 = excelGetData.getDataDecimalFromColumnAndRow("E","15");
-			transElemento3 = env1Service.obtenerTransmitanciaPorTipoSubtipoYNombre(EV1_TIPO_1, 
-																				   EV1_SUBTIPO_2, 
-																				   elementoNombre3);
-			//transElemento3 = vidriosRepository.findByNombre(elementoNombre3).get().getTransmitancia();
-
+			transElemento3 = env1Service.getTransByName(elementoNombre3);
+			
+			
 			sumSU += elementoArea3*transElemento3; //SxU
 			sumS += elementoArea3;
 
@@ -124,32 +92,25 @@ public class Env1ServicePart1 {
 			//2.1 Element A
 			elementoNombre1 = excelGetData.getDataStringColumnAndRow("B","21");
 			elementoArea1 = excelGetData.getDataDecimalFromColumnAndRow("C","21");
-			transElemento1 = env1Service.obtenerTransmitanciaPorTipoSubtipoYNombre(EV1_TIPO_2, 
-																				   EV1_SUBTIPO_3, 
-																				   elementoNombre1);	
-			//transElemento1 = vidriosRepository.findByNombre(elementoNombre1).get().getTransmitancia();
-
+			transElemento1 = env1Service.getTransByName(elementoNombre1);
+			
+			
 			sumSU += elementoArea1*transElemento1; //SxU
 			sumS += elementoArea1;
 
 			//2.2 Element B
 			elementoNombre2 = excelGetData.getDataStringColumnAndRow("B","22");
 			elementoArea2 = excelGetData.getDataDecimalFromColumnAndRow("C","22");
-			transElemento2 = env1Service.obtenerTransmitanciaPorTipoSubtipoYNombre(EV1_TIPO_2, 
-																				   EV1_SUBTIPO_3, 
-																				   elementoNombre2);
-			//transElemento2 = vidriosRepository.findByNombre(elementoNombre2).get().getTransmitancia();
+			transElemento2 = env1Service.getTransByName(elementoNombre2);
+			
 			sumSU += elementoArea2*transElemento2; //SxU
 			sumS += elementoArea2;
 
 			//2.1 Element A
 			elementoNombre3 = excelGetData.getDataStringColumnAndRow("B","23");
 			elementoArea3 = excelGetData.getDataDecimalFromColumnAndRow("C","23");
-			transElemento3 = env1Service.obtenerTransmitanciaPorTipoSubtipoYNombre(EV1_TIPO_2, 
-																				   EV1_SUBTIPO_3, 
-																				   elementoNombre3);
-			//transElemento3 = vidriosRepository.findByNombre(elementoNombre3).get().getTransmitancia();
-
+			transElemento3 = env1Service.getTransByName(elementoNombre3);
+			
 			sumSU += elementoArea3*transElemento3; //SxU
 			sumS += elementoArea3;
 

@@ -44,12 +44,15 @@ public class Env1ServicePart2 {
 			
 		double[] muroSinCamaraAire1 = this.muroSinCamaraAire1(excelGetData);
 		double[] muroSinCamaraAire2 = this.muroSinCamaraAire2(excelGetData);
-		
-		double U1 = Math.round(muroSinCamaraAire1[0]/muroSinCamaraAire1[1]*100.0)/100.0;
-		double U2 = Math.round(muroSinCamaraAire2[0]/muroSinCamaraAire2[1]*100.0)/100.0;
+		double[] muroConCamaraAire1 = this.muroConCamaraAire1(excelGetData);
 
 		
-		return U1+U2;
+		double U1 = Math.round(muroSinCamaraAire1[0]/muroSinCamaraAire1[1]*1000.0)/1000.0;
+		double U2 = Math.round(muroSinCamaraAire2[0]/muroSinCamaraAire2[1]*1000.0)/1000.0;
+		double U3 = Math.round(muroConCamaraAire1[0]/muroConCamaraAire1[1]*1000.0)/1000.0;
+
+		
+		return U1+U2+U3;
 	}
 	
 	
@@ -60,32 +63,25 @@ public class Env1ServicePart2 {
 		
 		double[] res = new double[2];
 		
-		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C","37");
-		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C","38");
-		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C","39");
-
-		logger.info(this.ESP1+" : Esta es el esp1");
-		logger.info(this.ESP2+" : Esta es el esp2");
-		logger.info(this.ESP3+" : Esta es el esp3");
-		
 		this.EL1 = ex.getDataStringColumnAndRow("B","37");
 		this.EL2 = ex.getDataStringColumnAndRow("B","38");	
 		this.EL3 = ex.getDataStringColumnAndRow("B","39");	
 		
+		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C","37");
+		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C","38");
+		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C","39");
+
 		this.AR1 = ex.getDataDecimalFromColumnAndRow("D","37");
-		logger.info(this.AR1+" : Esta es el area");
 		
-		this.COEF1 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL1).get().getCoeficienteTransmision());
-		this.COEF2 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL2).get().getCoeficienteTransmision());
-		this.COEF3 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL3).get().getCoeficienteTransmision());
-		logger.info(this.COEF1+" : Esta es el coef1");
-		logger.info(this.COEF2+" : Esta es el coef2");
-		logger.info(this.COEF3+" : Esta es el coef3");
+		this.COEF1 = env1Service.getCoefTransByName(this.EL1);
+		this.COEF2 = env1Service.getCoefTransByName(this.EL2);
+		this.COEF3 = env1Service.getCoefTransByName(this.EL3);
+
 
 		
 		
-		double U = this.formulaUTransmitanciaBloque1(rse,rsi);
-		logger.info(U+" : Esta es U");
+		double U = this.formulaUTransmitanciaBloque1(rse,rsi,0.0);
+		logger.info(U+" : Esta es U1");
 
 		
 		
@@ -101,22 +97,23 @@ public class Env1ServicePart2 {
 		double rsi = 0.06;
 		
 		double[] res = new double[2];
+
+		this.EL1 = ex.getDataStringColumnAndRow("B","45");
+		this.EL2 = ex.getDataStringColumnAndRow("B","46");	
+		this.EL3 = ex.getDataStringColumnAndRow("B","47");	
 		
 		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C","45");
 		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C","46");
 		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C","47");
 		
-		this.EL1 = ex.getDataStringColumnAndRow("B","45");
-		this.EL2 = ex.getDataStringColumnAndRow("B","46");	
-		this.EL3 = ex.getDataStringColumnAndRow("B","47");	
-		
 		this.AR1 = ex.getDataDecimalFromColumnAndRow("D","45");
 		
-		this.COEF1 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL1).get().getCoeficienteTransmision());
-		this.COEF2 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL2).get().getCoeficienteTransmision());
-		this.COEF3 =  Double.parseDouble(materialesRepository.findByNombreMaterial(this.EL3).get().getCoeficienteTransmision());
-
-		double U = this.formulaUTransmitanciaBloque1(rse,rsi);
+		this.COEF1 = env1Service.getCoefTransByName(this.EL1);
+		this.COEF2 = env1Service.getCoefTransByName(this.EL2);
+		this.COEF3 = env1Service.getCoefTransByName(this.EL3);
+		
+		double U = this.formulaUTransmitanciaBloque1(rse,rsi,0.0);
+		logger.info(U+" : Esta es U2");
 
 		
 		res[0] = this.AR1*U;
@@ -125,14 +122,70 @@ public class Env1ServicePart2 {
 		return res;
 	}
 	
-	public double formulaUTransmitanciaBloque1(double rse, double rsi) {
+	public double formulaUTransmitanciaBloque1(double rse, double rsi, double rst) {
 
-		double U = 1/((this.ESP1/this.COEF1) + (this.ESP2/this.COEF2) + (this.ESP3/this.COEF3) + rse + rsi);
-		U = Math.round(U*100.0)/100.0;
+		double U = 1/((this.ESP1/this.COEF1) + (this.ESP2/this.COEF2) + (this.ESP3/this.COEF3) + rse + rsi + rst);
+		U = Math.round(U*1000.0)/1000.0;
 
 		return U;
 	}
 	
+	public double[] muroConCamaraAire1(FormExcelGetData ex) {
+		
+		double rst = env1Service.getResistCamByName(ex.getDataStringColumnAndRow("B","65"));
+			
+		logger.info("------------------------");
+
+		logger.info(ex.getDataStringColumnAndRow("B","65")+" : Esta el nombre");
+
+		logger.info(rst+" : Esta es rst");
+
+		logger.info("------------------------");
+
+		
+		double rse = 0.11;
+		double rsi = 0.06;
+		
+		double[] res = new double[2];
+		
+		this.EL1 = ex.getDataStringColumnAndRow("B","57");
+		this.EL2 = ex.getDataStringColumnAndRow("B","58");	
+		this.EL3 = ex.getDataStringColumnAndRow("B","59");	
+		
+		logger.info(""+this.EL1);
+		logger.info("	"+this.EL2);
+		logger.info("		"+this.EL3);
+
+		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C","57");
+		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C","58");
+		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C","59");
+		
+		logger.info(""+this.ESP1);
+		logger.info("	"+this.ESP2);
+		logger.info("		"+this.ESP3);
+		
+		this.AR1 = ex.getDataDecimalFromColumnAndRow("D","57");
+		
+		logger.info(""+this.AR1);
+
+		this.COEF1 = env1Service.getCoefTransByName(this.EL1);
+		this.COEF2 = env1Service.getCoefTransByName(this.EL2);
+		this.COEF3 = env1Service.getCoefTransByName(this.EL3);
+		
+		logger.info(""+this.COEF1);
+		logger.info("	"+this.COEF2);
+		logger.info("		"+this.COEF3);
+		
+		double U = this.formulaUTransmitanciaBloque1(rse,rsi,rst);
+		logger.info(U+" : Esta es U3");
+
+		
+		res[0] = this.AR1*U;
+		res[1] = this.AR1;
+				
+		return res;
+		
+	}
 }
 
 

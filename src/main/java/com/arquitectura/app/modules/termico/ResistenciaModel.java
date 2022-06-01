@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="resistencias")
-public class Resistencias {
+public class ResistenciaModel {
 
 	
 	@Id
@@ -22,11 +22,11 @@ public class Resistencias {
 	@Column(name="valor")
 	private String valorResistencia;
 	
-	public Resistencias() {
+	public ResistenciaModel() {
 		super();
 	}
 
-	public Resistencias(String nombreResistencia, String valorResistencia) {
+	public ResistenciaModel(String nombreResistencia, String valorResistencia) {
 		super();
 		this.nombreResistencia = nombreResistencia;
 		this.valorResistencia = valorResistencia;
