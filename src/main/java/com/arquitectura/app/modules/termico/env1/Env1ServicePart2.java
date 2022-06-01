@@ -134,15 +134,6 @@ public class Env1ServicePart2 {
 		
 		double rst = env1Service.getResistCamByName(ex.getDataStringColumnAndRow("B","65"));
 			
-		logger.info("------------------------");
-
-		logger.info(ex.getDataStringColumnAndRow("B","65")+" : Esta el nombre");
-
-		logger.info(rst+" : Esta es rst");
-
-		logger.info("------------------------");
-
-		
 		double rse = 0.11;
 		double rsi = 0.06;
 		
@@ -151,31 +142,17 @@ public class Env1ServicePart2 {
 		this.EL1 = ex.getDataStringColumnAndRow("B","57");
 		this.EL2 = ex.getDataStringColumnAndRow("B","58");	
 		this.EL3 = ex.getDataStringColumnAndRow("B","59");	
-		
-		logger.info(""+this.EL1);
-		logger.info("	"+this.EL2);
-		logger.info("		"+this.EL3);
 
 		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C","57");
 		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C","58");
 		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C","59");
-		
-		logger.info(""+this.ESP1);
-		logger.info("	"+this.ESP2);
-		logger.info("		"+this.ESP3);
-		
+
 		this.AR1 = ex.getDataDecimalFromColumnAndRow("D","57");
-		
-		logger.info(""+this.AR1);
 
 		this.COEF1 = env1Service.getCoefTransByName(this.EL1);
 		this.COEF2 = env1Service.getCoefTransByName(this.EL2);
 		this.COEF3 = env1Service.getCoefTransByName(this.EL3);
-		
-		logger.info(""+this.COEF1);
-		logger.info("	"+this.COEF2);
-		logger.info("		"+this.COEF3);
-		
+
 		double U = this.formulaUTransmitanciaBloque1(rse,rsi,rst);
 		logger.info(U+" : Esta es U3");
 
