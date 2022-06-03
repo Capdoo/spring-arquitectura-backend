@@ -25,6 +25,8 @@ public class Env1ServicePart2 {
 	private String EL3;
 	
 	private double AR1;
+	private double AR2;
+	private double AR3;
 
 	private double ESP1;
 	private double ESP2;
@@ -55,6 +57,8 @@ public class Env1ServicePart2 {
 		
 		double[] puenteTermicoViga1 = this.puenteTermicoViga1(excelGetData);
 		double[] puenteTermicoViga2 = this.puenteTermicoViga2(excelGetData);
+		double[] puenteTermicoVestiduraDerrame = this.puenteTermicoVestiduraDerrame(excelGetData);
+		double[] puenteTermicoCajaDePersianas = this.puenteTermicoCajaDePersianas(excelGetData);
 
 		
 		//------------------------------------
@@ -71,10 +75,14 @@ public class Env1ServicePart2 {
 		
 		double SU9 = puenteTermicoViga1[0];
 		double SU10 = puenteTermicoViga2[0];
+		double SU11 = puenteTermicoVestiduraDerrame[0];
+		double SU12 = puenteTermicoCajaDePersianas[0];
 
+
+		//puenteTermicoCajaDePersianas
 		
 		
-		double allSxU = SU1 + SU2 + SU3 + SU4 + SU5 + SU6 + SU7 + SU8 + SU9 + SU10;
+		double allSxU = SU1 + SU2 + SU3 + SU4 + SU5 + SU6 + SU7 + SU8 + SU9 + SU10 + SU11 + SU12;
 		
 		
 		double S1 = muroSinCamaraAire1[1];
@@ -89,9 +97,12 @@ public class Env1ServicePart2 {
 
 		double S9 = puenteTermicoViga1[1];
 		double S10 = puenteTermicoViga1[1];
+		double S11 = puenteTermicoVestiduraDerrame[1];
+		double S12 = puenteTermicoCajaDePersianas[1];
+
 
 		
-		double allS = S1 + S2 + S3 + S4 + S5 + S6 + S7 + S8 + S9 + S10;
+		double allS = S1 + S2 + S3 + S4 + S5 + S6 + S7 + S8 + S9 + S10 + S11 + S12;
 			
 		
 		return allSxU/allS;
@@ -404,6 +415,7 @@ public class Env1ServicePart2 {
 	}
 
 	public double[] puenteTermicoViga2(FormExcelGetData ex) {
+
 		
 		int i = 117;
 		
@@ -435,6 +447,99 @@ public class Env1ServicePart2 {
 				
 		return res;
 	}
+	
+	public double[] puenteTermicoVestiduraDerrame(FormExcelGetData ex) {
+
+		int i = 125;
+		
+		double[] res = new double[2];
+		
+		this.EL1 = ex.getDataStringColumnAndRow("B",i+"");
+		this.EL2 = ex.getDataStringColumnAndRow("B",(i+1)+"");	
+		this.EL3 = ex.getDataStringColumnAndRow("B",(i+2)+"");	
+
+		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C",i+"");
+		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C",(i+1)+"");
+		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C",(i+2)+"");
+		
+		double PER1 = ex.getDataDecimalFromColumnAndRow("D",i+"");
+		double PER2 = ex.getDataDecimalFromColumnAndRow("D",(i+1)+"");
+		double PER3 = ex.getDataDecimalFromColumnAndRow("D",(i+2)+"");
+
+		
+		this.AR1 = ex.getDataDecimalFromColumnAndRow("E",i+"");
+		this.AR2 = ex.getDataDecimalFromColumnAndRow("E",(i+1)+"");
+		this.AR3 = ex.getDataDecimalFromColumnAndRow("E",(i+2)+"");
+		
+		
+		this.AR1 = Math.round(this.AR1*100.0)/100.0;
+		this.AR2 = Math.round(this.AR2*100.0)/100.0;
+		this.AR3 = Math.round(this.AR3*100.0)/100.0;
+
+		
+		double U1 = env1Service.getTransByName(this.EL1);
+		double U2  = env1Service.getTransByName(this.EL2);
+		double U3  = env1Service.getTransByName(this.EL3);
+		
+		
+		logger.info(this.AR1+" : Esta es Area 11.1");
+		logger.info(this.AR1+" : Esta es Area 11.2");
+		logger.info(this.AR1+" : Esta es Area 11.3");
+		
+		logger.info(U1+" : Esta es U 11.1");
+		logger.info(U2+" : Esta es U 11.2");
+		logger.info(U3+" : Esta es U 11.3");
+
+		
+		logger.info(U1*this.AR1+" : Esta es SxU1");
+		logger.info(U2*this.AR2+" : Esta es SxU2");
+		logger.info(U3*this.AR3+" : Esta es SxU3");
+
+		
+		res[0] = this.AR1*U1 + this.AR2*U2 + this.AR3*U3;
+		res[1] = this.AR1+this.AR2+this.AR3;
+				
+		return res;
+	}
+	
+	public double[] puenteTermicoCajaDePersianas(FormExcelGetData ex) {
+		
+		double rst = env1Service.getResistCamByName(ex.getDataStringColumnAndRow("B","133"));
+		logger.info(ex.getDataStringColumnAndRow("B","133")+" : Este es name");
+		
+		double[] res = new double[2];
+		
+		int i = 137;
+		
+		this.EL1 = ex.getDataStringColumnAndRow("B",i+"");
+		this.EL2 = ex.getDataStringColumnAndRow("B",(i+1)+"");	
+		this.EL3 = ex.getDataStringColumnAndRow("B",(i+2)+"");	
+
+		this.ESP1 = ex.getDataDecimalFromColumnAndRow("C",i+"");
+		this.ESP2 = ex.getDataDecimalFromColumnAndRow("C",(i+1)+"");
+		this.ESP3 = ex.getDataDecimalFromColumnAndRow("C",(i+2)+"");
+
+		this.AR1 = ex.getDataDecimalFromColumnAndRow("D",i+"");
+
+		this.COEF1 = env1Service.getCoefTransByName(this.EL1);
+		this.COEF2 = env1Service.getCoefTransByName(this.EL2);
+		this.COEF3 = env1Service.getCoefTransByName(this.EL3);
+
+		double U = this.formulaUTransmitanciaBloque1(0.0,0.0,rst);
+		logger.info(U+" : Esta es U12");
+		logger.info(this.AR1+" : Esta es A12");
+		
+		logger.info(this.AR1*U+" : Esta es UxA12");
+
+
+		
+		res[0] = this.AR1*U;
+		res[1] = this.AR1;
+				
+		return res;
+		
+	}
+
 	
 }
 
