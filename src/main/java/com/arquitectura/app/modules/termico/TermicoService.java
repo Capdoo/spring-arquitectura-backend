@@ -28,8 +28,6 @@ public class TermicoService {
 		TermicoDTO termicoDTO = new TermicoDTO(); 
 			double env1 = env1ServiceGlobal.procesarEnvolvente1(worbookObtenido);
 			termicoDTO.setEnvolvente1(env1+"");
-		
-
 				
 		return termicoDTO;
 

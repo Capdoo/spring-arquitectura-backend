@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.arquitectura.app.excel.FormExcelGetData;
 import com.arquitectura.app.modules.termico.MaterialesModel;
 import com.arquitectura.app.modules.termico.MaterialesRepository;
+import com.arquitectura.app.modules.termico.ResultadoDTO;
 
 @Service
 public class Env1ServicePart2 {
@@ -39,11 +40,15 @@ public class Env1ServicePart2 {
 
 	private final static Logger logger = LoggerFactory.getLogger(Env1ServicePart2.class);
 	
-	public double executeEnv1Parte2(Workbook workbook) {
+	public ResultadoDTO executeEnv1Parte2(Workbook workbook) {
+		
+		ResultadoDTO resultadoDTO = new ResultadoDTO();
+
 		
 		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
 			excelGetData.setNroHoja(1);
 			
+				
 		double[] muroSinCamaraAire1 = this.muroSinCamaraAire1(excelGetData);
 		double[] muroSinCamaraAire2 = this.muroSinCamaraAire2(excelGetData);
 		double[] muroConCamaraAire1 = this.muroConCamaraAire1(excelGetData);
@@ -54,15 +59,13 @@ public class Env1ServicePart2 {
 		double[] puenteTermicoSobrecimiento1 = this.puenteTermicoSobrecimiento1(excelGetData);
 		double[] puenteTermicoSobrecimiento2 = this.puenteTermicoSobrecimiento2(excelGetData);
 
-		
 		double[] puenteTermicoViga1 = this.puenteTermicoViga1(excelGetData);
 		double[] puenteTermicoViga2 = this.puenteTermicoViga2(excelGetData);
 		double[] puenteTermicoVestiduraDerrame = this.puenteTermicoVestiduraDerrame(excelGetData);
 		double[] puenteTermicoCajaDePersianas = this.puenteTermicoCajaDePersianas(excelGetData);
 
+		//----------------------------------------------
 		
-		//------------------------------------
-
 		double SU1 = muroSinCamaraAire1[0];
 		double SU2 = muroSinCamaraAire2[0];
 		double SU3 = muroConCamaraAire1[0];
@@ -78,13 +81,8 @@ public class Env1ServicePart2 {
 		double SU11 = puenteTermicoVestiduraDerrame[0];
 		double SU12 = puenteTermicoCajaDePersianas[0];
 
-
 		//puenteTermicoCajaDePersianas
-		
-		
-		double allSxU = SU1 + SU2 + SU3 + SU4 + SU5 + SU6 + SU7 + SU8 + SU9 + SU10 + SU11 + SU12;
-		
-		
+
 		double S1 = muroSinCamaraAire1[1];
 		double S2 = muroSinCamaraAire2[1];
 		double S3 = muroConCamaraAire1[1];
@@ -99,13 +97,15 @@ public class Env1ServicePart2 {
 		double S10 = puenteTermicoViga1[1];
 		double S11 = puenteTermicoVestiduraDerrame[1];
 		double S12 = puenteTermicoCajaDePersianas[1];
-
-
 		
+
+		double allSxU = SU1 + SU2 + SU3 + SU4 + SU5 + SU6 + SU7 + SU8 + SU9 + SU10 + SU11 + SU12;
 		double allS = S1 + S2 + S3 + S4 + S5 + S6 + S7 + S8 + S9 + S10 + S11 + S12;
 			
+		resultadoDTO.setSumSxU(allSxU);
+		resultadoDTO.setSumS(allS);
 		
-		return allSxU/allS;
+		return resultadoDTO;
 	}
 	
 	

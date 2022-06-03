@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.arquitectura.app.excel.FormExcelGetData;
+import com.arquitectura.app.modules.termico.ResultadoDTO;
 import com.arquitectura.app.modules.termico.VidriosRepository;
 
 
@@ -19,8 +20,9 @@ public class Env1ServicePart1 {
 	String FILE_DIRECTORY;
 
 
-	public double executeEnv1Parte1(Workbook workbook) {
+	public ResultadoDTO executeEnv1Parte1(Workbook workbook) {
 
+		ResultadoDTO resultadoDTO = new ResultadoDTO();
 		
 		String elementoNombre1 = "";
 		String elementoNombre2 = "";
@@ -115,10 +117,14 @@ public class Env1ServicePart1 {
 			sumS += elementoArea3;
 
 			sumSU = Math.round(sumSU*100.0)/100.0;
-		
-		//this.sumS = sumS;
-		//this.sumSU = sumSU;
-		return sumSU/sumS;
+			
+			
+			
+		resultadoDTO.setSumSxU(sumSU);
+		resultadoDTO.setSumS(sumS);
+
+			
+		return resultadoDTO;
 	}
 
 }
