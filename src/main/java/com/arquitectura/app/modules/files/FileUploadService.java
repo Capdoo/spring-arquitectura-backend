@@ -11,7 +11,7 @@ import com.arquitectura.app.dto.FileNombreDTO;
 import com.arquitectura.app.dto.MensajeDTO;
 import com.arquitectura.app.evaluacion.CloudinaryDTO;
 import com.arquitectura.app.excel.FormExcelImporter;
-import com.arquitectura.app.modules.termico.env1.Env1ServiceToBD;
+import com.arquitectura.app.modules.termico.services.TermicoServiceToBD;
 import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
@@ -34,7 +34,7 @@ public class FileUploadService {
 	@Value("${file.upload-dir}")
 	String FILE_DIRECTORY;
 	@Autowired
-	Env1ServiceToBD env1Service;
+	TermicoServiceToBD env1Service;
 	
 	@Autowired
 	FormExcelImporter formExcelImporter;

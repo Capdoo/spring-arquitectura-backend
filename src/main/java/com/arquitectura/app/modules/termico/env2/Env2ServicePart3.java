@@ -1,4 +1,4 @@
-package com.arquitectura.app.modules.termico.env1;
+package com.arquitectura.app.modules.termico.env2;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
 
 import com.arquitectura.app.excel.FormExcelGetData;
 import com.arquitectura.app.modules.termico.ResultadoDTO;
+import com.arquitectura.app.modules.termico.env1.Env1ServicePart2;
 import com.arquitectura.app.modules.termico.repositories.MaterialesRepository;
 import com.arquitectura.app.modules.termico.services.TermicoServiceToBD;
 
 
 @Service
-public class Env1ServicePart3 {
-	
+public class Env2ServicePart3 {
+
 	@Autowired
 	TermicoServiceToBD env1Service;
 	
@@ -40,14 +41,14 @@ public class Env1ServicePart3 {
 	
 
 
-	public ResultadoDTO executeEnv1Parte3(Workbook workbook) {
+	public ResultadoDTO executeEnv2Parte3(Workbook workbook) {
 		
 		ResultadoDTO resultadoDTO = new ResultadoDTO();
 		
 		double[] resFinal = new double[2];
 		
 		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
-			excelGetData.setNroHoja(1);
+			excelGetData.setNroHoja(2);
 			
 		double[] pisosTipo1b = this.pisosTipo1b(excelGetData);
 		
@@ -103,5 +104,4 @@ public class Env1ServicePart3 {
 
 		return U;
 	}
-
 }

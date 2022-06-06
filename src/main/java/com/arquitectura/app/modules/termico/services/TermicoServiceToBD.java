@@ -1,4 +1,4 @@
-package com.arquitectura.app.modules.termico.env1;
+package com.arquitectura.app.modules.termico.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,15 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.arquitectura.app.modules.termico.MaterialesRepository;
-import com.arquitectura.app.modules.termico.ResistenciaModel;
-import com.arquitectura.app.modules.termico.ResistenciaRepository;
-import com.arquitectura.app.modules.termico.VidriosModel;
-import com.arquitectura.app.modules.termico.MaterialesModel;
-import com.arquitectura.app.modules.termico.VidriosRepository;
+import com.arquitectura.app.modules.termico.models.MaterialesModel;
+import com.arquitectura.app.modules.termico.models.ResistenciaModel;
+import com.arquitectura.app.modules.termico.models.VidriosModel;
+import com.arquitectura.app.modules.termico.repositories.MaterialesRepository;
+import com.arquitectura.app.modules.termico.repositories.ResistenciaRepository;
+import com.arquitectura.app.modules.termico.repositories.VidriosRepository;
 
 @Service
-public class Env1ServiceToBD {
+public class TermicoServiceToBD {
 
 
 	@Autowired

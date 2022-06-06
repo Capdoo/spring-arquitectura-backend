@@ -1,4 +1,4 @@
-package com.arquitectura.app.modules.termico.env1;
+package com.arquitectura.app.modules.termico.env2;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.arquitectura.app.excel.FormExcelGetData;
 import com.arquitectura.app.modules.termico.ResultadoDTO;
-import com.arquitectura.app.modules.termico.models.MaterialesModel;
+import com.arquitectura.app.modules.termico.env1.Env1ServicePart2;
 import com.arquitectura.app.modules.termico.repositories.MaterialesRepository;
 import com.arquitectura.app.modules.termico.services.TermicoServiceToBD;
 
 @Service
-public class Env1ServicePart2 {
-	
+public class Env2ServicePart2 {
+
 	@Autowired
 	TermicoServiceToBD env1Service;
 	
@@ -41,13 +41,13 @@ public class Env1ServicePart2 {
 
 	private final static Logger logger = LoggerFactory.getLogger(Env1ServicePart2.class);
 	
-	public ResultadoDTO executeEnv1Parte2(Workbook workbook) {
+	public ResultadoDTO executeEnv2Parte2(Workbook workbook) {
 		
 		ResultadoDTO resultadoDTO = new ResultadoDTO();
 
 		
 		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
-			excelGetData.setNroHoja(1);
+			excelGetData.setNroHoja(2);
 			
 				
 		double[] muroSinCamaraAire1 = this.muroSinCamaraAire1(excelGetData);
@@ -527,17 +527,6 @@ public class Env1ServicePart2 {
 		return res;
 		
 	}
-
+	
 	
 }
-
-
-
-
-
-
-
-
-
-
-

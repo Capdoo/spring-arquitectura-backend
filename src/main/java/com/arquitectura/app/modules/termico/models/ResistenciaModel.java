@@ -1,4 +1,4 @@
-package com.arquitectura.app.modules.termico;
+package com.arquitectura.app.modules.termico.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

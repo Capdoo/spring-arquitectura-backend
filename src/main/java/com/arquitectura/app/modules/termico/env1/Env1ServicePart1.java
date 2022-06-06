@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.arquitectura.app.excel.FormExcelGetData;
 import com.arquitectura.app.modules.termico.ResultadoDTO;
-import com.arquitectura.app.modules.termico.VidriosRepository;
+import com.arquitectura.app.modules.termico.services.TermicoServiceToBD;
 
 
 @Service
 public class Env1ServicePart1 {
 	
 	@Autowired
-	Env1ServiceToBD env1Service;
+	TermicoServiceToBD env1Service;
 	
 	@Value("${file.upload-dir}")
 	String FILE_DIRECTORY;
