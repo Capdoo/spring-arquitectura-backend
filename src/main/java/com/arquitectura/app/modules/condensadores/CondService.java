@@ -51,7 +51,7 @@ public class CondService {
 	public CondDTO ObtenerDatosExcel(String FILE_URL, String FILE_NAME) throws IOException {
 		Workbook worbookObtenido = formExcelImporter.obtenerWorkbookDeFileUrl(FILE_URL, FILE_NAME);
 		FormExcelGetData excelGetData = new FormExcelGetData(worbookObtenido);
-		excelGetData.setNroHoja(2);
+		excelGetData.setNroHoja(5);
 		int zona = (int)excelGetData.getDataDecimalFromColumnAndRow("D", "6");
 		String tipo_ed = excelGetData.getDataStringColumnAndRow("D", "7");
 		
@@ -61,7 +61,7 @@ public class CondService {
 	public CondDTO ObtenerDatosExcel(String FILE_URL, String FILE_NAME, String provincia) throws IOException {
 		Workbook worbookObtenido = formExcelImporter.obtenerWorkbookDeFileUrl(FILE_URL, FILE_NAME);
 		FormExcelGetData excelGetData = new FormExcelGetData(worbookObtenido);
-		excelGetData.setNroHoja(2);
+		excelGetData.setNroHoja(5);
 		int idUbi = ubiService.obtenerIdPorProvincia(provincia);
 		int zona = ubiService.obtenerNumeroZona(idUbi);
 		String tipo_ed = excelGetData.getDataStringColumnAndRow("D", "7");

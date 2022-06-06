@@ -10,13 +10,18 @@ import com.arquitectura.app.modules.termico.ResistenciaRepository;
 import com.arquitectura.app.modules.termico.VidriosRepository;
 
 @Service
-public class Env3ServicePart1 {
+public class Env3Service {
 	@Autowired
 	VidriosRepository vidriosRepository;
 	@Autowired
 	MaterialesRepository materialRepository;
 	@Autowired
 	ResistenciaRepository resistenciaRepository;
+	
+	public double procesarEnv3(Workbook workbook) {
+		return(getEnv3Pt1(workbook)+getEnv3Pt2(workbook)+getEnv3Pt3(workbook)+getEnv3Pt4(workbook));
+	}
+	
 	//Vanos: Ventanas, lucernarios, claraboyas y otros vanos traslúcidos o transparentes sobre techo
 	public double getEnv3Pt1(Workbook workbook) {
 		
@@ -165,6 +170,121 @@ public class Env3ServicePart1 {
 		u2 = 1/u2;
 		sumSxU += u1 * area;
 		
+		return sumSxU/sumS;
+	}
+	public double getEnv3Pt4(Workbook workbook) {
+		String materialNombre = "";
+		double espesor;
+		double transmision;
+		double area;
+		double u1 = 0.0;
+		double u2 = 0.0;
+		double u3 = 0.0;
+		double u4 = 0.0;
+		double sumS = 0.0;
+		double sumSxU = 0.0;
+		double resCamAire;
+		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
+		excelGetData.setNroHoja(3);
+		
+		//ResistenciasSuperficiales
+		double rse = excelGetData.getDataDecimalFromColumnAndRow("C","53");
+		double rsi = excelGetData.getDataDecimalFromColumnAndRow("C","54");
+		
+		//TECHO SIN CAMARA DE AIRE
+		area = excelGetData.getDataDecimalFromColumnAndRow("D","58");
+		sumS += area;
+		//Elemento 1
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "58");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "58");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u1 += espesor/transmision;
+		//Elemento 2
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "59");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "59");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u1 += espesor/transmision;
+		//Elemento 3
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "60");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "60");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u1 += espesor/transmision;
+		//Calculo
+		u1 += (rsi+rse);
+		u1 = 1/u1;
+		sumSxU += u1 * area;
+		
+		//TECHO CON CAMARA DE AIRE
+		area = excelGetData.getDataDecimalFromColumnAndRow("D","68");
+		sumS += area;
+		//Resistencia camara de aire segun espesor
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "65");
+		resCamAire = Double.parseDouble(resistenciaRepository.findByNombreResistencia(materialNombre).get().getValorResistencia());
+		//Elemento 1
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "68");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "68");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u2 += espesor/transmision;
+		//Elemento 2
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "69");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "69");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u2 += espesor/transmision;
+		//Elemento 3
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "70");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "70");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u2 += espesor/transmision;
+		//Calculo
+		u2 += (rsi+rse+resCamAire);
+		u2 = 1/u2;
+		sumSxU += u1 * area;
+		
+		//PUENTE TERMICO TIPO N1
+		area = excelGetData.getDataDecimalFromColumnAndRow("D","74");
+		sumS += area;
+		//Elemento 1
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "74");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "74");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u3 += espesor/transmision;
+		//Elemento 2
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "75");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "75");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u3 += espesor/transmision;
+		//Elemento 3
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "76");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "76");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u3 += espesor/transmision;
+		//Calculo
+		u3 = 1/u3;
+		sumSxU += u3 * area;
+		
+		//PUENTE TERMICO TIPO N2
+		area = excelGetData.getDataDecimalFromColumnAndRow("D","80");
+		sumS += area;
+		//Elemento 1
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "80");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "80");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u4 += espesor/transmision;
+		//Elemento 2
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "81");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "81");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u4 += espesor/transmision;
+		//Elemento 3
+		materialNombre = excelGetData.getDataStringColumnAndRow("B", "82");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "82");
+		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		u4 += espesor/transmision;
+		//Calculo
+		u4 = 1/u4;
+		sumSxU += u4 * area;
+		
+		//Calculo final
 		return sumSxU/sumS;
 	}
 }

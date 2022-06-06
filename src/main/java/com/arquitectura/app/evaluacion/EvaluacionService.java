@@ -35,7 +35,6 @@ public class EvaluacionService {
 		TermicoDTO termicoEvaluacion = new TermicoDTO();
 		termicoEvaluacion = termicoService.obtenerTermico(fileUrl, fileName);
 		return termicoEvaluacion;
-		
 	}
 	
 	//Evaluacion Condensadores
