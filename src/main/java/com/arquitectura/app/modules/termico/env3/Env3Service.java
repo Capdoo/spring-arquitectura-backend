@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.arquitectura.app.excel.FormExcelGetData;
-import com.arquitectura.app.modules.termico.MaterialesRepository;
-import com.arquitectura.app.modules.termico.ResistenciaRepository;
-import com.arquitectura.app.modules.termico.VidriosRepository;
+import com.arquitectura.app.modules.termico.repositories.MaterialesRepository;
+import com.arquitectura.app.modules.termico.repositories.ResistenciaRepository;
+import com.arquitectura.app.modules.termico.repositories.VidriosRepository;
 
 @Service
 public class Env3Service {
