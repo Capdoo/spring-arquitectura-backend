@@ -129,6 +129,12 @@ public class Env2ServicePart2 {
 
 		this.AR1 = ex.getDataDecimalFromColumnAndRow("D",i+"");
 		
+		logger.info("//////////////////////////////////");
+		logger.info(EL1);
+		logger.info(EL2);
+		logger.info(EL3);
+
+		
 		this.COEF1 = env1Service.getCoefTransByName(this.EL1);
 		this.COEF2 = env1Service.getCoefTransByName(this.EL2);
 		this.COEF3 = env1Service.getCoefTransByName(this.EL3);

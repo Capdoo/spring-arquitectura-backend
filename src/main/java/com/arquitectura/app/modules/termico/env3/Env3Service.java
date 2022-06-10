@@ -1,16 +1,26 @@
 package com.arquitectura.app.modules.termico.env3;
 
 import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.arquitectura.app.excel.FormExcelGetData;
+import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
 import com.arquitectura.app.modules.termico.repositories.MaterialesRepository;
 import com.arquitectura.app.modules.termico.repositories.ResistenciaRepository;
 import com.arquitectura.app.modules.termico.repositories.VidriosRepository;
+import com.arquitectura.app.modules.termico.services.TermicoServiceToBD;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class Env3Service {
+	
+	
+	private final static Logger logger = LoggerFactory.getLogger(Env1ServiceGlobal.class);
+
 	@Autowired
 	VidriosRepository vidriosRepository;
 	@Autowired
@@ -18,8 +28,21 @@ public class Env3Service {
 	@Autowired
 	ResistenciaRepository resistenciaRepository;
 	
+	
+	@Autowired
+	TermicoServiceToBD termicoService;
+	
+	
 	public double procesarEnv3(Workbook workbook) {
-		return(getEnv3Pt1(workbook)+getEnv3Pt2(workbook)+getEnv3Pt3(workbook)+getEnv3Pt4(workbook));
+		
+		double parte1 = getEnv3Pt1(workbook);
+		double parte2 = getEnv3Pt2(workbook);
+		double parte3 = getEnv3Pt3(workbook);
+		double parte4 = getEnv3Pt4(workbook);
+		
+		return parte1 + parte2 + parte3 + parte4;
+		
+		//return(getEnv3Pt1(workbook)+getEnv3Pt2(workbook)+getEnv3Pt3(workbook)+getEnv3Pt4(workbook));
 	}
 	
 	//Vanos: Ventanas, lucernarios, claraboyas y otros vanos traslúcidos o transparentes sobre techo
@@ -51,20 +74,20 @@ public class Env3Service {
 		
 		//Tipo de carpintería del marco de ventana
 		//Elemento 1
-		elementoNombre = excelGetData.getDataStringColumnAndRow("B","10");
-		elementoArea = excelGetData.getDataDecimalFromColumnAndRow("E","10");
-		transElemento = Double.parseDouble(vidriosRepository.findByNombreVidrio(elementoNombre).get().getTransmitanciaVidrio());
-		sumSU += elementoArea*transElemento; //SxU
-		sumS += elementoArea;
-		//Elemento 2
 		elementoNombre = excelGetData.getDataStringColumnAndRow("B","11");
 		elementoArea = excelGetData.getDataDecimalFromColumnAndRow("E","11");
 		transElemento = Double.parseDouble(vidriosRepository.findByNombreVidrio(elementoNombre).get().getTransmitanciaVidrio());
 		sumSU += elementoArea*transElemento; //SxU
 		sumS += elementoArea;
-		//Elemento 3
+		//Elemento 2
 		elementoNombre = excelGetData.getDataStringColumnAndRow("B","12");
 		elementoArea = excelGetData.getDataDecimalFromColumnAndRow("E","12");
+		transElemento = Double.parseDouble(vidriosRepository.findByNombreVidrio(elementoNombre).get().getTransmitanciaVidrio());
+		sumSU += elementoArea*transElemento; //SxU
+		sumS += elementoArea;
+		//Elemento 3
+		elementoNombre = excelGetData.getDataStringColumnAndRow("B","13");
+		elementoArea = excelGetData.getDataDecimalFromColumnAndRow("E","13");
 		transElemento = Double.parseDouble(vidriosRepository.findByNombreVidrio(elementoNombre).get().getTransmitanciaVidrio());
 		sumSU += elementoArea*transElemento; //SxU
 		sumS += elementoArea;
@@ -125,18 +148,38 @@ public class Env3Service {
 		area = excelGetData.getDataDecimalFromColumnAndRow("D","34");
 		sumS += area;
 		//Elemento 1
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "34");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "34");
-		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","34");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","34");
+		logger.info("/////////////////////////////////////////////");
+		logger.info(materialNombre);
+		logger.info(espesor+"");
+
+		
+		try {
+			transmision = termicoService.getCoefTransByName(materialNombre);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		transmision = 2.33;
+		
 		u1 += espesor/transmision;
 		//Elemento 2
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "35");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "35");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","35");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","35");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u1 += espesor/transmision;
 		//Elemento 3
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "36");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "36");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","36");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","36");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u1 += espesor/transmision;
 		//Calculo
@@ -148,21 +191,21 @@ public class Env3Service {
 		area = excelGetData.getDataDecimalFromColumnAndRow("D","44");
 		sumS += area;
 		//Resistencia camara de aire segun espesor
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "41");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","41");
 		resCamAire = Double.parseDouble(resistenciaRepository.findByNombreResistencia(materialNombre).get().getValorResistencia());
 		//Elemento 1
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "44");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "44");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","44");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","44");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u2 += espesor/transmision;
 		//Elemento 2
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "45");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "45");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","45");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","45");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u2 += espesor/transmision;
 		//Elemento 3
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "46");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "46");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","46");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","46");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u2 += espesor/transmision;
 		//Calculo
@@ -195,18 +238,18 @@ public class Env3Service {
 		area = excelGetData.getDataDecimalFromColumnAndRow("D","58");
 		sumS += area;
 		//Elemento 1
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "58");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "58");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","58");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","58");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u1 += espesor/transmision;
 		//Elemento 2
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "59");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "59");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","59");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","59");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u1 += espesor/transmision;
 		//Elemento 3
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "60");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "60");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","60");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","60");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u1 += espesor/transmision;
 		//Calculo
@@ -218,21 +261,21 @@ public class Env3Service {
 		area = excelGetData.getDataDecimalFromColumnAndRow("D","68");
 		sumS += area;
 		//Resistencia camara de aire segun espesor
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "65");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","65");
 		resCamAire = Double.parseDouble(resistenciaRepository.findByNombreResistencia(materialNombre).get().getValorResistencia());
 		//Elemento 1
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "68");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "68");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","68");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","68");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u2 += espesor/transmision;
 		//Elemento 2
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "69");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "69");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","69");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","69");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u2 += espesor/transmision;
 		//Elemento 3
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "70");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "70");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","70");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","70");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u2 += espesor/transmision;
 		//Calculo
@@ -244,18 +287,18 @@ public class Env3Service {
 		area = excelGetData.getDataDecimalFromColumnAndRow("D","74");
 		sumS += area;
 		//Elemento 1
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "74");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "74");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","74");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","74");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u3 += espesor/transmision;
 		//Elemento 2
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "75");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "75");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","75");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","75");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u3 += espesor/transmision;
 		//Elemento 3
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "76");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "76");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","76");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","76");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u3 += espesor/transmision;
 		//Calculo
@@ -266,18 +309,18 @@ public class Env3Service {
 		area = excelGetData.getDataDecimalFromColumnAndRow("D","80");
 		sumS += area;
 		//Elemento 1
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "80");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "80");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","80");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","80");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u4 += espesor/transmision;
 		//Elemento 2
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "81");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "81");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","81");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","81");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u4 += espesor/transmision;
 		//Elemento 3
-		materialNombre = excelGetData.getDataStringColumnAndRow("B", "82");
-		espesor = excelGetData.getDataDecimalFromColumnAndRow("C", "82");
+		materialNombre = excelGetData.getDataStringColumnAndRow("B","82");
+		espesor = excelGetData.getDataDecimalFromColumnAndRow("C","82");
 		transmision = Double.parseDouble(materialRepository.findByNombreMaterial(materialNombre).get().getCoeficienteTransmision());
 		u4 += espesor/transmision;
 		//Calculo
