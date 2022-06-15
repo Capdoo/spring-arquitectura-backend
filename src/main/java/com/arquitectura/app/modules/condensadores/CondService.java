@@ -74,33 +74,33 @@ public class CondService {
 		return new CondDTO(obtenerTsiMuro(zona, tipo_ed), obtenerTsiTecho(zona, tipo_ed), obtenerTsiPiso(zona, tipo_ed), obtenerHR(zona));
 	}
 	
-	public float obtenerTsiMuro(int zona, String tipo_ed) {
+	public double obtenerTsiMuro(int zona, String tipo_ed) {
 		float u = condRepository.findByZona(zona).getU_muro();
 		float rsi = condRepository.findByZona(zona).getRsi_muro();
 		int te = condRepository.findByZona(zona).getTe_muro();
 		float ti = edTiRepository.findByTipo(tipo_ed).getTi();
 		
-		float tsi = ti-u*rsi*(ti-te);
+		double tsi = ti-u*rsi*(ti-te);
 		return Math.round(tsi*100)/100;
 	}
 	
-	public float obtenerTsiTecho(int zona, String tipo_ed) {
+	public double obtenerTsiTecho(int zona, String tipo_ed) {
 		float u = condRepository.findByZona(zona).getU_techo();
 		float rsi = condRepository.findByZona(zona).getRsi_techo();
 		int te = condRepository.findByZona(zona).getTe_techo();
 		float ti = edTiRepository.findByTipo(tipo_ed).getTi();
 		
-		float tsi = ti-u*rsi*(ti-te);
+		double tsi = ti-u*rsi*(ti-te);
 		return Math.round(tsi*100)/100;
 	}
 	
-	public float obtenerTsiPiso(int zona, String tipo_ed) {
+	public double obtenerTsiPiso(int zona, String tipo_ed) {
 		float u = condRepository.findByZona(zona).getU_piso();
 		float rsi = condRepository.findByZona(zona).getRsi_piso();
 		int te = condRepository.findByZona(zona).getTe_piso();
 		float ti = edTiRepository.findByTipo(tipo_ed).getTi();
 		
-		float tsi = ti-u*rsi*(ti-te);
+		double tsi = ti-u*rsi*(ti-te);
 		return Math.round(tsi*100)/100;
 	}
 	
