@@ -37,13 +37,16 @@ public class TermicoService {
 		TermicoDTO termicoDTO = new TermicoDTO(); 
 
 			double env1 = env1ServiceGlobal.procesarEnvolvente1(worbookObtenido);
-			termicoDTO.setEnvolvente1(env1+"");
+			double env1Round = Math.round(env1*100.0)/100.0;
+			termicoDTO.setEnvolvente1(env1Round+"");
 			
 			double env2 = env2ServiceGlobal.procesarEnvolvente2(worbookObtenido);
-			termicoDTO.setEnvolvente2(env2+"");
+			double env2Round = Math.round(env2*100.0)/100.0;
+			termicoDTO.setEnvolvente2(env2Round+"");
 
 			double env3 = env3Service.procesarEnv3(worbookObtenido);
-			termicoDTO.setEnvolvente3(env3+"");
+			double env3Round = Math.round(env3*100.0)/100.0;
+			termicoDTO.setEnvolvente3(env3Round+"");
 
 				
 		return termicoDTO;

@@ -81,7 +81,7 @@ public class CondService {
 		float ti = edTiRepository.findByTipo(tipo_ed).getTi();
 		
 		float tsi = ti-u*rsi*(ti-te);
-		return tsi;
+		return Math.round(tsi*100)/100;
 	}
 	
 	public float obtenerTsiTecho(int zona, String tipo_ed) {
@@ -91,7 +91,7 @@ public class CondService {
 		float ti = edTiRepository.findByTipo(tipo_ed).getTi();
 		
 		float tsi = ti-u*rsi*(ti-te);
-		return tsi;
+		return Math.round(tsi*100)/100;
 	}
 	
 	public float obtenerTsiPiso(int zona, String tipo_ed) {
@@ -101,7 +101,7 @@ public class CondService {
 		float ti = edTiRepository.findByTipo(tipo_ed).getTi();
 		
 		float tsi = ti-u*rsi*(ti-te);
-		return tsi;
+		return Math.round(tsi*100)/100;
 	}
 	
 	public int obtenerHR(int zona) {
