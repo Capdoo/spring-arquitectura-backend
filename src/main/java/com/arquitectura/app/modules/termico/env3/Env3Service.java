@@ -211,7 +211,7 @@ public class Env3Service {
 		//Calculo
 		u2 += (rsi+rse+resCamAire);
 		u2 = 1/u2;
-		sumSxU += u1 * area;
+		sumSxU += u2 * area;
 		
 		return sumSxU/sumS;
 	}
@@ -281,7 +281,7 @@ public class Env3Service {
 		//Calculo
 		u2 += (rsi+rse+resCamAire);
 		u2 = 1/u2;
-		sumSxU += u1 * area;
+		sumSxU += u2 * area;
 		
 		//PUENTE TERMICO TIPO N1
 		area = excelGetData.getDataDecimalFromColumnAndRow("D","74");

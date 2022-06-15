@@ -13,6 +13,7 @@ import com.arquitectura.app.excel.FormExcelImporter;
 import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
 import com.arquitectura.app.modules.termico.env2.Env2ServiceGlobal;
 import com.arquitectura.app.modules.termico.env3.Env3Service;
+import com.arquitectura.app.modules.termico.env4.Env4Service;
 
 
 @Service
@@ -30,6 +31,8 @@ public class TermicoService {
 	@Autowired
 	Env3Service env3Service;
 
+	@Autowired
+	Env4Service env4Service;
 	
 	public TermicoDTO obtenerTermico(String FILE_URL, String FILE_NAME) throws IOException {
 		Workbook worbookObtenido = formExcelImporter.obtenerWorkbookDeFileUrl(FILE_URL, FILE_NAME);
@@ -48,7 +51,10 @@ public class TermicoService {
 			double env3Round = Math.round(env3*100.0)/100.0;
 			termicoDTO.setEnvolvente3(env3Round+"");
 
-				
+			double env4 = env4Service.procesarEnv4(worbookObtenido);
+			double env4Round = Math.round(env4*100.0)/100.0;
+			termicoDTO.setEnvolvente4(env4Round+"");
+			
 		return termicoDTO;
 
 	}
