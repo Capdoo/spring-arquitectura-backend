@@ -12,6 +12,19 @@ public class UbicacionesService {
 	UbicacionesRepository ubiRepository;
 	
 	
+	public UbicacionDTO obtenerUbicacionPorId(int id) {
+		UbicacionesModel ubicacionSeleccionada = ubiRepository.findById(id);
+		UbicacionDTO ubicacionDTO = new UbicacionDTO();
+		
+		ubicacionDTO.setId(id);
+		ubicacionDTO.setDepartamento(ubicacionSeleccionada.getDepartamento());
+		ubicacionDTO.setNumeroZona(ubicacionSeleccionada.getN_estacion());
+		ubicacionDTO.setZonaBioclimatica(ubicacionSeleccionada.getZona_clim());
+		ubicacionDTO.setEstacionReferencial(ubicacionSeleccionada.getN_estacion());
+		
+		return ubicacionDTO;
+	}
+	
 	public List<ProvinciasDTO> obtenerTodasProvincias() {
 		List<ProvinciasDTO> listaEnviar = new ArrayList<ProvinciasDTO>();
 	
