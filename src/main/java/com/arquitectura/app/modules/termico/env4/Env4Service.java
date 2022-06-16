@@ -45,7 +45,7 @@ public class Env4Service {
 		double sumSxU = 0.0;
 		double resCamAire;
 		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
-		excelGetData.setNroHoja(3);
+		excelGetData.setNroHoja(4);
 		
 		//ResistenciasSuperficiales
 		double rse = excelGetData.getDataDecimalFromColumnAndRow("C","6");
@@ -113,7 +113,7 @@ public class Env4Service {
 		double sumSxU = 0.0;
 		double resCamAire;
 		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
-		excelGetData.setNroHoja(3);
+		excelGetData.setNroHoja(4);
 		
 		//ResistenciasSuperficiales
 		double rse = excelGetData.getDataDecimalFromColumnAndRow("C","30");
@@ -158,7 +158,7 @@ public class Env4Service {
 		double sumSxU = 0.0;
 		double resCamAire;
 		FormExcelGetData excelGetData = new FormExcelGetData(workbook);
-		excelGetData.setNroHoja(3);
+		excelGetData.setNroHoja(4);
 
 		area = excelGetData.getDataDecimalFromColumnAndRow("D","51");
 		sumS += area;
