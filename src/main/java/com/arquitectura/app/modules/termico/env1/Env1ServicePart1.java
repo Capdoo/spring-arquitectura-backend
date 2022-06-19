@@ -67,7 +67,7 @@ public class Env1ServicePart1 {
 			//2.1 Elemento 1
 			elementoNombre1 = excelGetData.getDataStringColumnAndRow("B","13");
 			elementoArea1 = excelGetData.getDataDecimalFromColumnAndRow("E","13");
-			transElemento1 = env1Service.getTransByName(elementoNombre1);
+			transElemento1 = env1Service.getTransByNameCarpMarco(elementoNombre1);
 
 			sumSU += elementoArea1*transElemento1; //SxU
 			sumS += elementoArea1;
@@ -75,7 +75,7 @@ public class Env1ServicePart1 {
 			//2.2 Elemento 2
 			elementoNombre2 = excelGetData.getDataStringColumnAndRow("B","14");
 			elementoArea2 = excelGetData.getDataDecimalFromColumnAndRow("E","14");
-			transElemento2 = env1Service.getTransByName(elementoNombre2);
+			transElemento2 = env1Service.getTransByNameCarpMarco(elementoNombre2);
 			
 			sumSU += elementoArea2*transElemento2; //SxU
 			sumS += elementoArea2;
@@ -84,7 +84,7 @@ public class Env1ServicePart1 {
 			
 			elementoNombre3 = excelGetData.getDataStringColumnAndRow("B","15");
 			elementoArea3 = excelGetData.getDataDecimalFromColumnAndRow("E","15");
-			transElemento3 = env1Service.getTransByName(elementoNombre3);
+			transElemento3 = env1Service.getTransByNameCarpMarco(elementoNombre3);
 			
 			
 			sumSU += elementoArea3*transElemento3; //SxU
@@ -94,7 +94,7 @@ public class Env1ServicePart1 {
 			//2.1 Element A
 			elementoNombre1 = excelGetData.getDataStringColumnAndRow("B","21");
 			elementoArea1 = excelGetData.getDataDecimalFromColumnAndRow("C","21");
-			transElemento1 = env1Service.getTransByName(elementoNombre1);
+			transElemento1 = env1Service.getTransByNameCarpMarcoPuerta(elementoNombre1);
 			
 			
 			sumSU += elementoArea1*transElemento1; //SxU
@@ -103,7 +103,7 @@ public class Env1ServicePart1 {
 			//2.2 Element B
 			elementoNombre2 = excelGetData.getDataStringColumnAndRow("B","22");
 			elementoArea2 = excelGetData.getDataDecimalFromColumnAndRow("C","22");
-			transElemento2 = env1Service.getTransByName(elementoNombre2);
+			transElemento2 = env1Service.getTransByNameCarpMarcoPuerta(elementoNombre2);
 			
 			sumSU += elementoArea2*transElemento2; //SxU
 			sumS += elementoArea2;
@@ -111,7 +111,7 @@ public class Env1ServicePart1 {
 			//2.1 Element A
 			elementoNombre3 = excelGetData.getDataStringColumnAndRow("B","23");
 			elementoArea3 = excelGetData.getDataDecimalFromColumnAndRow("C","23");
-			transElemento3 = env1Service.getTransByName(elementoNombre3);
+			transElemento3 = env1Service.getTransByNameCarpMarcoPuerta(elementoNombre3);
 			
 			sumSU += elementoArea3*transElemento3; //SxU
 			sumS += elementoArea3;

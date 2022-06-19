@@ -471,9 +471,9 @@ public class Env1ServicePart2 {
 		this.AR3 = Math.round(this.AR3*100.0)/100.0;
 
 		
-		double U1 = env1Service.getTransByName(this.EL1);
-		double U2  = env1Service.getTransByName(this.EL2);
-		double U3  = env1Service.getTransByName(this.EL3);
+		double U1 = env1Service.getTransByNameCarpMarco(this.EL1);
+		double U2  = env1Service.getTransByNameCarpMarco(this.EL2);
+		double U3  = env1Service.getTransByNameCarpMarco(this.EL3);
 		
 		
 		logger.info(this.AR1+" : Esta es Area 11.1");

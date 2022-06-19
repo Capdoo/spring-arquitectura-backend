@@ -39,15 +39,20 @@ public class Env1ServiceGlobal {
 	Env1ServicePart3 env1Part3;
 	
 	public double procesarEnvolvente1(Workbook workbook) {
-		
-		ResultadoDTO part1 = env1Part1.executeEnv1Parte1(workbook);
-		ResultadoDTO part2 = env1Part2.executeEnv1Parte2(workbook);
-		ResultadoDTO part3 = env1Part3.executeEnv1Parte3(workbook);
 
-		double sumaTotalSxU = part1.getSumSxU() + part2.getSumSxU() + part3.getSumSxU();
-		double sumaTotalS = part1.getSumS() + part2.getSumS() + part3.getSumS();
+			ResultadoDTO part1 = env1Part1.executeEnv1Parte1(workbook);
+			
+			ResultadoDTO part2 = env1Part2.executeEnv1Parte2(workbook);
+			ResultadoDTO part3 = env1Part3.executeEnv1Parte3(workbook);
+			
+			double sumaTotalSxU = part1.getSumSxU() + part2.getSumSxU() + part3.getSumSxU();
+			double sumaTotalS = part1.getSumS() + part2.getSumS() + part3.getSumS();
 
-		return sumaTotalSxU/sumaTotalS;
+			return sumaTotalSxU/sumaTotalS;
+
+
+
+
 	}
 	
 	

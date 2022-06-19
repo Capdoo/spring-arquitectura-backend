@@ -125,9 +125,9 @@ public class Env2ServicePart1 {
 		this.AR2 = ex.getDataDecimalFromColumnAndRow("E",(i+1)+"");
 		this.AR3 = ex.getDataDecimalFromColumnAndRow("E",(i+2)+"");
 
-		this.U1 = env1Service.getTransByName(this.EL1);
-		this.U2 = env1Service.getTransByName(this.EL2);
-		this.U3 = env1Service.getTransByName(this.EL3);
+		this.U1 = env1Service.getTransByNameCarpMarco(this.EL1);
+		this.U2 = env1Service.getTransByNameCarpMarco(this.EL2);
+		this.U3 = env1Service.getTransByNameCarpMarco(this.EL3);
 
 
 		logger.info(U1+" : Esta es U1");
@@ -154,9 +154,9 @@ public class Env2ServicePart1 {
 		this.AR2 = ex.getDataDecimalFromColumnAndRow("C",(i+1)+"");
 		this.AR3 = ex.getDataDecimalFromColumnAndRow("C",(i+2)+"");
 
-		this.U1 = env1Service.getTransByName(this.EL1);
-		this.U2 = env1Service.getTransByName(this.EL2);
-		this.U3 = env1Service.getTransByName(this.EL3);
+		this.U1 = env1Service.getTransByNameCarpMarcoPuerta(this.EL1);
+		this.U2 = env1Service.getTransByNameCarpMarcoPuerta(this.EL2);
+		this.U3 = env1Service.getTransByNameCarpMarcoPuerta(this.EL3);
 
 
 		logger.info(U1+" : Esta es U1");
