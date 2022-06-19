@@ -1,11 +1,13 @@
 package com.arquitectura.app.modules.termico.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.arquitectura.app.modules.termico.dto.OpcionesDTO;
 import com.arquitectura.app.modules.termico.models.CarpinteriaMarcoModel;
 import com.arquitectura.app.modules.termico.models.CarpinteriaMarcoPuertaModel;
 import com.arquitectura.app.modules.termico.models.MaterialesModel;
@@ -75,6 +77,67 @@ public class TermicoServiceToBD {
 		String resist = registro.getValorResistencia();
 
 		return Double.parseDouble(resist);
+	}
+	
+	
+	//---------------------Obtener Vidrios Opciones-----------------------------------
+	public List<OpcionesDTO> getAllVidriosOpciones(){
+		List<OpcionesDTO> listaEnviar = new ArrayList<OpcionesDTO>();
+		List<VidriosModel> listaTotal = vidriosRepository.findAll();
+			
+		for(VidriosModel p: listaTotal) {
+			OpcionesDTO opcionSingle = new OpcionesDTO(p.getId(),p.getNombreVidrio());
+			listaEnviar.add(opcionSingle);
+		}
+		return listaEnviar;
+	}
+	
+	//Obtener Carpinteria Marco Ventana
+	public List<OpcionesDTO> getAllCarpMarcoOpciones(){
+		List<OpcionesDTO> listaEnviar = new ArrayList<OpcionesDTO>();
+		List<CarpinteriaMarcoModel> listaTotal = carpinteriaMarcoRepository.findAll();
+			
+		for(CarpinteriaMarcoModel p: listaTotal) {
+			OpcionesDTO opcionSingle = new OpcionesDTO(p.getId(),p.getNombreCarpinteria());
+			listaEnviar.add(opcionSingle);
+		}
+		return listaEnviar;
+	}
+	
+	//Obtener Carpinteria Marco Ventana
+	public List<OpcionesDTO> getAllCarpMarcoPuertaOpciones(){
+		List<OpcionesDTO> listaEnviar = new ArrayList<OpcionesDTO>();
+		List<CarpinteriaMarcoPuertaModel> listaTotal = carpinteriaMarcoPuertaRepository.findAll();
+			
+		for(CarpinteriaMarcoPuertaModel p: listaTotal) {
+			OpcionesDTO opcionSingle = new OpcionesDTO(p.getId(),p.getNombreCarpinteria());
+			listaEnviar.add(opcionSingle);
+		}
+		return listaEnviar;
+	}
+	
+	//Obtener Materiales
+	public List<OpcionesDTO> getAllMaterialesOpciones(){
+		List<OpcionesDTO> listaEnviar = new ArrayList<OpcionesDTO>();
+		List<MaterialesModel> listaTotal = materialesRepository.findAll();
+			
+		for(MaterialesModel p: listaTotal) {
+			OpcionesDTO opcionSingle = new OpcionesDTO(p.getId(),p.getNombreMaterial());
+			listaEnviar.add(opcionSingle);
+		}
+		return listaEnviar;
+	}
+	
+	//Obtener Resistencias
+	public List<OpcionesDTO> getAllResistenciasOpciones(){
+		List<OpcionesDTO> listaEnviar = new ArrayList<OpcionesDTO>();
+		List<ResistenciaModel> listaTotal = resistenciaRepository.findAll();
+			
+		for(ResistenciaModel p: listaTotal) {
+			OpcionesDTO opcionSingle = new OpcionesDTO(p.getId(),p.getNombreResistencia());
+			listaEnviar.add(opcionSingle);
+		}
+		return listaEnviar;
 	}
 	
 }
