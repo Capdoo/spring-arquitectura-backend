@@ -41,7 +41,7 @@ public class EvaluacionController {
 			CloudinaryDTO cloud = fileUploadService.fileUploadCloud(file);
 			
 			TermicoDTO termico = evaluacionService.evaluarTermico(cloud.getUrlFile(), cloud.getNameUniqueFile());
-			LuminicoDTO luminico = evaluacionService.evaluarLuminico(cloud.getUrlFile());
+			LuminicoDTO luminico = evaluacionService.evaluarLuminico(cloud.getUrlFile(), cloud.getNameUniqueFile());
 			SolarDTO solar = evaluacionService.evaluarSolar(cloud.getUrlFile(), cloud.getNameUniqueFile());
 			CondDTO condesadores = evaluacionService.evaluarCondensadores(cloud.getUrlFile(), cloud.getNameUniqueFile());
 

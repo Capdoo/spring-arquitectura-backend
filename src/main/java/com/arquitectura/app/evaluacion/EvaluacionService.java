@@ -11,6 +11,7 @@ import com.arquitectura.app.dto.SolarDTO;
 import com.arquitectura.app.dto.TermicoDTO;
 import com.arquitectura.app.dto.CondDTO;
 import com.arquitectura.app.modules.condensadores.CondService;
+import com.arquitectura.app.modules.luminico.luminicoService;
 import com.arquitectura.app.modules.solar.SolarService;
 import com.arquitectura.app.modules.termico.TermicoService;
 import com.arquitectura.app.modules.termico.env1.Env1ServiceGlobal;
@@ -26,6 +27,9 @@ public class EvaluacionService {
 	
 	@Autowired
 	TermicoService termicoService;
+	
+	@Autowired
+	luminicoService luminicoService;
 	
 	@Autowired
 	SolarService solarService;
@@ -50,10 +54,10 @@ public class EvaluacionService {
 	} //Cuando se pase el nombre de la provincia
 	
 	//Evaluacion Luminico
-	public LuminicoDTO evaluarLuminico(String fileName) {
-		LuminicoDTO luminico = new LuminicoDTO();
-			luminico.setGeneric("Test");
-		return luminico;
+	public LuminicoDTO evaluarLuminico(String fileUrl, String fileName) throws MalformedURLException, IOException {
+		LuminicoDTO luminicoEvaluacion = new LuminicoDTO();
+		luminicoEvaluacion = luminicoService.obtenerResultadosLuminico(fileUrl, fileName);
+		return luminicoEvaluacion;
 	}
 	
 	//Evaluacion Solar
