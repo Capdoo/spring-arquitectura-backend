@@ -36,7 +36,6 @@ public class TermicoService {
 	
 	public TermicoDTO obtenerTermico(String FILE_URL, String FILE_NAME) throws IOException {
 		Workbook worbookObtenido = formExcelImporter.obtenerWorkbookDeFileUrl(FILE_URL, FILE_NAME);
-		
 		TermicoDTO termicoDTO = new TermicoDTO(); 
 
 			double env1 = env1ServiceGlobal.procesarEnvolvente1(worbookObtenido);

@@ -1,26 +1,23 @@
 package com.arquitectura.app.dto;
 
+import java.util.List;
+
+import com.arquitectura.app.modules.luminico.models.resVentanaModel;
+
 public class LuminicoDTO {
 
-	private String generic;
-
+	private List<resVentanaModel> resVentanas;
+	
 	public LuminicoDTO() {
 		super();
 	}
 
-	public LuminicoDTO(String generic) {
-		super();
-		this.generic = generic;
+	public List<resVentanaModel> getResVentanas() {
+		return resVentanas;
 	}
-	
-	
-	
-	public String getGeneric() {
-		return generic;
-	}
-	
-	public void setGeneric(String generic) {
-		this.generic = generic;
+
+	public void setResVentanas(List<resVentanaModel> resVentanas) {
+		this.resVentanas = resVentanas;
 	}
 
 }
